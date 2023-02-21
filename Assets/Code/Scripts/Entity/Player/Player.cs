@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDamageable
 {
     public float playerSpeed = 1f;
 	public Transform spawnPoint;
@@ -25,6 +25,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+		#region Movement
 		// Get horizontal and vertical input
 		float xInput = Input.GetAxisRaw("Horizontal");
 		float yInput = Input.GetAxisRaw("Vertical");
@@ -56,5 +57,11 @@ public class Player : MonoBehaviour
 			//Move the player
 			transform.Translate(movementVector.x * playerSpeed * Time.fixedDeltaTime, 0, 0);
 		}
+		#endregion
+	}
+
+	public void Damage()
+	{
+		
 	}
 }
