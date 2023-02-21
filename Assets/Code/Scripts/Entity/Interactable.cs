@@ -30,6 +30,11 @@ public class Interactable : MonoBehaviour
 
     protected virtual void OnCollide(Collider2D collider)
     {
+        ShowInteract();
+    }
 
+    private void ShowInteract()
+    {
+        Debug.Log("Press e to interact");
     }
 }

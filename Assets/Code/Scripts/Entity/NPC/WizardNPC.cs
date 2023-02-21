@@ -6,6 +6,10 @@ public class WizardNPC : Interactable
 {
 	protected override void OnCollide(Collider2D collider)
 	{
-		base.OnCollide(collider);
+		if (Input.GetButtonDown("Interact"))
+		{
+
+		}
+		else base.OnCollide(collider);
 	}
 }
