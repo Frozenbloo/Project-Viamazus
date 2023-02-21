@@ -20,8 +20,8 @@ public class MazeRenderer : MonoBehaviour
 				GameObject cell = Instantiate(mazeCell, new Vector3((float)x * cellSize, (float)y * cellSize, 0f), Quaternion.identity, transform); 
 
 				MazeCellObjectGenerator mazeCellObject = cell.GetComponent<MazeCellObjectGenerator>();
-				bool top = maze[x, y].TopWall;
-				bool left = maze[x, y].LeftWall;
+				bool top = maze[x, y].topWall;
+				bool left = maze[x, y].leftWall;
 
 				bool right = false;
 				bool bottom = false;

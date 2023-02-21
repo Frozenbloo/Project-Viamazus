@@ -103,61 +103,21 @@ public class MazeGenerator : MonoBehaviour
         //
         if (cell.x > neighbourCell.x)
         {
-            maze[cell.x, cell.y].LeftWall = false;
+            maze[cell.x, cell.y].leftWall = false;
         }
         else if (cell.x < neighbourCell.x)
         {
-            maze[neighbourCell.x, neighbourCell.y].LeftWall = false;
+            maze[neighbourCell.x, neighbourCell.y].leftWall = false;
         }
         else if (cell.y < neighbourCell.y)
 		{
-			maze[cell.x, cell.y].TopWall = false;
+			maze[cell.x, cell.y].topWall = false;
 		}
 		else if (cell.y > neighbourCell.y)
 		{
-			maze[neighbourCell.x, neighbourCell.y].TopWall = false;
+			maze[neighbourCell.x, neighbourCell.y].topWall = false;
 		}
 	}
-
-	/**
-    private void CarveMazePath(int x, int y)
-    {
-        if (x < 0 || y < 0 || x > mazeSize - 1 || y > mazeSize - 1)
-        {
-            x = y = 0;
-            Debug.LogWarning("Starting Position Error, Defaulting to 0, 0");
-        }
-
-        cell = new Vector2Int(x, y);
-
-        //List of paths
-        List<Vector2Int> cellPath = new List<Vector2Int>();
-        bool hitDeadEnd = false;
-        while (!hitDeadEnd)
-        {
-            Vector2Int nextCellForPath = CheckNeighbourValid();
-            if (nextCellForPath == cell) 
-            {
-                //Attempts to backtrack
-                for (int i = cellPath.Count-1; i >= 0; i--)
-                {
-                    cell = cellPath[i];
-                    cellPath.RemoveAt(i);
-                    nextCellForPath = CheckNeighbourValid();
-                    if (nextCellForPath != cell) break;
-                }
-                //Couldn't find a cell to backtrack to
-                if (cell == nextCellForPath) hitDeadEnd = true;
-            } else
-            {
-                DetermineWallLocations(cell, nextCellForPath);
-                maze[cell.x, cell.y].BeenVisited = true;
-                cell = nextCellForPath;
-                cellPath.Add(cell);
-            }
-        }
-    }
-    **/
 	private void CarveMazePath(short x, short y)
 	{
 		cell = new Vector2Int(x, y);

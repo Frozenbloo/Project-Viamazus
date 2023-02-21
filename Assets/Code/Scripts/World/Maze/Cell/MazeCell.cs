@@ -11,25 +11,25 @@ public enum Dirs
 }
 
 
-public class MazeCell
+public class MazeCell : ICell
 {
     private bool beenVisited;
     private short x, y;
-    private bool topWall, leftWall;
-    private Vector2Int position;
+    private bool cTopWall, cLeftWall;
+    private Vector2Int cPosition;
 
     public MazeCell(short x, short y)
     {
         this.x = x;
         this.y = y;
 
-        beenVisited= false;
+        beenVisited = false;
 
         topWall = leftWall = true;
     }
 
-	public Vector2Int Position { get => new Vector2Int(x, y); }
+	public Vector2Int position { get => new Vector2Int(x, y); set => cPosition = value; }
 	public bool BeenVisited { get => beenVisited; set => beenVisited = value; }
-	public bool TopWall { get => topWall; set => topWall = value; }
-	public bool LeftWall { get => leftWall; set => leftWall = value; }
+	public bool topWall { get => cTopWall; set => cTopWall = value; }
+	public bool leftWall { get => cLeftWall; set => cLeftWall = value; }
 }
