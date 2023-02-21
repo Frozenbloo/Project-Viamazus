@@ -100,7 +100,6 @@ public class MazeGenerator : MonoBehaviour
 
     private void DetermineWallLocations(Vector2Int cell, Vector2Int neighbourCell)
     {
-        //
         if (cell.x > neighbourCell.x)
         {
             maze[cell.x, cell.y].leftWall = false;
@@ -121,7 +120,6 @@ public class MazeGenerator : MonoBehaviour
 	private void CarveMazePath(short x, short y)
 	{
 		cell = new Vector2Int(x, y);
-
 
         Vector2Int nextCellForPath = CheckNeighbourValid();
 		if (nextCellForPath == cell)
