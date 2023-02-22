@@ -33,8 +33,5 @@ public class Interactable : MonoBehaviour
         ShowInteract();
     }
 
-    private void ShowInteract()
-    {
-        Debug.Log("Press e to interact");
-    }
+    private void ShowInteract() { }
 }
