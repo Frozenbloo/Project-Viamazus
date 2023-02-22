@@ -3292,7 +3292,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo
+    ligula eget dolor. Aenean massa.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f079b73bb01f07d45bbd39c128d20a44, type: 2}
   m_sharedMaterial: {fileID: 877358545829287722, guid: f079b73bb01f07d45bbd39c128d20a44, type: 2}

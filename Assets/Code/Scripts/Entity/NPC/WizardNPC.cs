@@ -6,7 +6,7 @@ public class WizardNPC : Interactable, IDialogue
 {
 	private string[] dialogue =
 	{
-		"Hello There!",
+		"Howdy Partner!",
 		"This is a test for dialogue!",
 		"I want to see how long i can make this dialogue, although it will probably be very long lorum ipsum etc etc"
 	};
