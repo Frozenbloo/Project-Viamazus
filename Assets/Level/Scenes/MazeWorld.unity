@@ -260,7 +260,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f4772934abc87343a38a75a59273b82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mazeSize: 45
+  mazeSize: 40
   spawnPos: {fileID: 107185310}
 --- !u!114 &1919228234
 MonoBehaviour:
