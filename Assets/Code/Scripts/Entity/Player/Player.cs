@@ -60,7 +60,7 @@ public class Player : MonoBehaviour, IDamageable
 		#endregion
 	}
 
-	public void Damage()
+	public void Damage(float dmgAmount)
 	{
 		
 	}

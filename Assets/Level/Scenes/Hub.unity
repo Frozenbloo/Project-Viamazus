@@ -170,6 +170,8 @@ MonoBehaviour:
   text: {fileID: 881924707}
   dialogueBox: {fileID: 602355923}
   dialogueSpeed: 0.03
+  maxDist: 0.32
+  player: {fileID: 335057659}
 --- !u!4 &335057659 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3879278080133659467, guid: f8316b19995204e46822055164fe3b40, type: 3}

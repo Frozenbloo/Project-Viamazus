@@ -17,8 +17,9 @@ public class WizardNPC : Interactable, IDialogue
 	{
 		if (Input.GetButtonDown("Interact"))
 		{
-			FindObjectOfType<DialogueManager>().StartDialogue(this);
+			FindObjectOfType<DialogueManager>().StartDialogue(this, this.gameObject);
 		}
 		else base.OnCollide(collider);
 	}
+
 }

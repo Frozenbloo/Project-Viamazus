@@ -9,8 +9,13 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI text;
     public GameObject dialogueBox;
     public float dialogueSpeed;
+    public float maxDist = 0.32f;
+
+    public Transform player;
 
     private string sentence;
+    private IDialogue dialogue;
+    private new GameObject gameObject;
 
     private ViamazusQueue<string> sentences;
 
@@ -25,22 +30,31 @@ public class DialogueManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		if (Input.GetMouseButtonDown(0))
+        if (dialogue != null)
         {
-			if (text.text == this.sentence)
+			if (Input.GetMouseButtonDown(0))
 			{
-				DisplayNextSentence();
+				if (text.text == this.sentence)
+				{
+					DisplayNextSentence();
+				}
+				else
+				{
+					StopAllCoroutines();
+					text.text = this.sentence;
+				}
 			}
-			else
-			{
-				StopAllCoroutines();
-				text.text = this.sentence;
-			}
+            if (Vector2.Distance(player.position, gameObject.transform.position) >= maxDist)
+            {
+                EndDialogue();
+            }
 		}
 	}
 
-	public void StartDialogue(IDialogue dialogue)
+	public void StartDialogue(IDialogue dialogue, GameObject gObject)
     {
+        this.dialogue = dialogue;
+        this.gameObject = gObject;
         dialogueBox.SetActive(true);
 
         sentences.Clear();
@@ -78,5 +92,6 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         dialogueBox.SetActive(false);
+        this.dialogue = null;
     }
 }
