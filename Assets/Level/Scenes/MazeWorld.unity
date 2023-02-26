@@ -292,6 +292,10 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 107185311}
+    - target: {fileID: 3879278080133659466, guid: f8316b19995204e46822055164fe3b40, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3879278080133659467, guid: f8316b19995204e46822055164fe3b40, type: 3}
       propertyPath: m_RootOrder
       value: 1

@@ -7,15 +7,16 @@ using UnityEngine;
 public class DialogueManager : MonoBehaviour
 {
     public TextMeshProUGUI text;
+    public TextMeshProUGUI npcName;
     public GameObject dialogueBox;
     public float dialogueSpeed;
     public float maxDist = 0.32f;
 
-    public Transform player;
+    public Transform playerTransform;
 
     private string sentence;
     private IDialogue dialogue;
-    private new GameObject gameObject;
+    private GameObject dialogueGameObject;
 
     private ViamazusQueue<string> sentences;
 
@@ -23,8 +24,7 @@ public class DialogueManager : MonoBehaviour
     void Start()
     {
         sentences = new ViamazusQueue<string>();
-        dialogueBox.SetActive(false);
-        text.text = string.Empty;
+        NullDialogue();
     }
 
 	// Update is called once per frame
@@ -44,17 +44,15 @@ public class DialogueManager : MonoBehaviour
 					text.text = this.sentence;
 				}
 			}
-            if (Vector2.Distance(player.position, gameObject.transform.position) >= maxDist)
-            {
-                EndDialogue();
-            }
+			if (Vector2.Distance(playerTransform.position, dialogueGameObject.transform.position) >= maxDist) EndDialogue();
 		}
 	}
 
-	public void StartDialogue(IDialogue dialogue, GameObject gObject)
+	public void StartDialogue(IDialogue dialogue, GameObject dialogueGameObject)
     {
         this.dialogue = dialogue;
-        this.gameObject = gObject;
+        this.dialogueGameObject = dialogueGameObject;
+        npcName.text = dialogue.npcName;
         dialogueBox.SetActive(true);
 
         sentences.Clear();
@@ -92,6 +90,14 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         dialogueBox.SetActive(false);
-        this.dialogue = null;
+        NullDialogue();
     }
+
+    private void NullDialogue()
+    {
+		dialogueBox.SetActive(false);
+		dialogue = null;
+		text.text = string.Empty;
+		npcName.text = string.Empty;
+	}
 }

@@ -1,14 +1,30 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IDamageable
 {
-    public float playerSpeed = 1f;
+	#region Movement Vars
+	public float playerSpeed = 1f;
 	public Transform spawnPoint;
     private BoxCollider2D boxCollider2D;
 	private Vector3 movementVector;
 	private RaycastHit2D hitRaycast;
+	#endregion
+
+	#region Data Vars
+	Vector3 mousePos;
+
+	#endregion
+
+	#region Weapon
+	private WeaponHolder weaponHolder;
+	#endregion
+
+	private float HP, maxHP;
+	public GameObject weapon;
 
 	void moveSpawnPosition()
 	{
@@ -20,6 +36,13 @@ public class Player : MonoBehaviour, IDamageable
     {
 		boxCollider2D = GetComponent<BoxCollider2D>();
 		moveSpawnPosition();
+		if (SceneManager.GetActiveScene().name == "Hub") weapon.SetActive(false);
+		else weapon.SetActive(true);
+	}
+
+	void Awake()
+	{
+		weaponHolder = GetComponentInChildren<WeaponHolder>();
 	}
 
     // Update is called once per frame
@@ -36,12 +59,14 @@ public class Player : MonoBehaviour, IDamageable
 		// Flip the player sprite if moving left
 		if (xInput < 0)
 		{
-			transform.localScale = new Vector3(-1, 1, 1);
+			//GetComponent<SpriteRenderer>().transform.localScale = new Vector3(-1, 1, 1);
+			GetComponent<SpriteRenderer>().flipX = true;
 		}
 		// Flip the player sprite if moving right
 		else if (xInput > 0)
 		{
-			transform.localScale = new Vector3(1, 1, 1);
+			//GetComponent<SpriteRenderer>().transform.localScale = new Vector3(1, 1, 1);
+			GetComponent<SpriteRenderer>().flipX = false;
 		}
 
 		hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(0, movementVector.y), Mathf.Abs(movementVector.y * Time.deltaTime), LayerMask.GetMask("Entity", "Blocking"));
@@ -57,6 +82,14 @@ public class Player : MonoBehaviour, IDamageable
 			//Move the player
 			transform.Translate(movementVector.x * playerSpeed * Time.fixedDeltaTime, 0, 0);
 		}
+		#endregion
+		weaponHolder.pointerPos = mousePos;
+	}
+
+	void Update()
+	{
+		#region Data
+		mousePos = Input.mousePosition;
 		#endregion
 	}
 
