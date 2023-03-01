@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 	public int MazeRuns { get => mazeRuns; set => mazeRuns = value; }
 	public int WeaponUpgrade { get => weaponUpgrade; set => weaponUpgrade = value; }
 
+	#region SaveGame
 	//Saving GameState
 	public void SaveState()
 	{
@@ -66,4 +67,5 @@ public class GameManager : MonoBehaviour
 			//Theres no point on saving the game if the player doesn't even leave the hub as they gain nothing
 		}
 	}
+	#endregion
 }

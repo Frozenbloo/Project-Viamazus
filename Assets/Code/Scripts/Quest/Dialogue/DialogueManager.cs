@@ -90,6 +90,7 @@ public class DialogueManager : MonoBehaviour
     private void EndDialogue()
     {
         dialogueBox.SetActive(false);
+        dialogue.OnDialogueEnd();
         NullDialogue();
     }
 

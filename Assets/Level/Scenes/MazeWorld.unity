@@ -154,6 +154,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &847031030 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4821379113925092629, guid: f8316b19995204e46822055164fe3b40, type: 3}
+  m_PrefabInstance: {fileID: 2062213439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1008207491
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -288,6 +293,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 3879278080133659465, guid: f8316b19995204e46822055164fe3b40, type: 3}
+      propertyPath: weapon
+      value: 
+      objectReference: {fileID: 847031030}
     - target: {fileID: 3879278080133659465, guid: f8316b19995204e46822055164fe3b40, type: 3}
       propertyPath: spawnPoint
       value: 
