@@ -16,10 +16,15 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		instance = this;
+		player.setExp(playerExp);
 		//Adds the saveState function to the sceneLoaded event
 		SceneManager.sceneLoaded += LoadState;
 		DontDestroyOnLoad(gameObject);
 	}
+
+	#region GamePlay
+	private int playerExp;
+	#endregion
 
 	//Player Related Things that need to be saved
 	public Player player;

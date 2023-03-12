@@ -9,7 +9,7 @@ public class Player : MonoBehaviour, IDamageable
 	#region Movement Vars
 	public float playerSpeed = 1f;
 	public Transform spawnPoint;
-    private BoxCollider2D boxCollider2D;
+	private BoxCollider2D boxCollider2D;
 	private Vector3 movementVector;
 	private RaycastHit2D hitRaycast;
 	#endregion
@@ -21,6 +21,10 @@ public class Player : MonoBehaviour, IDamageable
 
 	#region Weapon
 	private WeaponHolder weaponHolder;
+	#endregion
+
+	#region Gameplay
+	private int Exp, Level;
 	#endregion
 
 	private float HP, maxHP;
@@ -97,4 +101,9 @@ public class Player : MonoBehaviour, IDamageable
 	{
 		
 	}
+
+	public int getLevel() { return Level; }
+	public int getExp() { return Exp; }
+	public void setLevel(int level) { Level = level; }
+	public void setExp(int exp) { Exp = exp; }
 }
