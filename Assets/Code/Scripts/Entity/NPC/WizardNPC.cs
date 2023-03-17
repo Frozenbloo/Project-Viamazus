@@ -11,7 +11,7 @@ public class WizardNPC : Interactable, IDialogue
 		"I want to see how long i can make this dialogue, although it will probably be very long lorum ipsum etc etc"
 	};
 
-	private string pNpcName = "Wizard";
+	private string pNpcName = "Wizard:";
 
 	public string npcName { get => pNpcName; set => pNpcName = value; }
 
