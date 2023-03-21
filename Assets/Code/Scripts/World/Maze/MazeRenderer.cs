@@ -9,6 +9,8 @@ public class MazeRenderer : MonoBehaviour
 
     public float cellSize = 0.16f;
 
+	private Pathfinding pathfinding;
+
 	private void Start()
 	{
 		MazeCell[,] maze = mazeGen.getMaze();
@@ -31,5 +33,6 @@ public class MazeRenderer : MonoBehaviour
 				mazeCellObject.Init(top, bottom, right, left);
 			}
 		}
+		pathfinding = new Pathfinding(maze, mazeGen.GetMazeSize(), mazeGen.GetMazeSize());
 	}
 }

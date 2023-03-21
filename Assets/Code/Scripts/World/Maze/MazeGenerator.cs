@@ -141,4 +141,10 @@ public class MazeGenerator : MonoBehaviour
 		}
 		CarveMazePath((short)cell.x, (short)cell.y);
 	}
+
+	public int GetMazeSize()
+	{
+		return mazeSize;
+	}
+
 }
