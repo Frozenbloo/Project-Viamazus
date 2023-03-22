@@ -158,7 +158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 654783520}
-  fadeDuration: 0.1
+  fadeDuration: 1
 --- !u!4 &361191866
 Transform:
   m_ObjectHideFlags: 0
