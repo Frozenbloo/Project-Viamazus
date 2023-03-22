@@ -26,9 +26,9 @@ public class MazeGenerator : MonoBehaviour
 		startX = rand.Next(mazeSize - 1) * 0.64f;
 		startY = rand.Next(mazeSize - 1) * 0.64f;
 		maze = new MazeCell[mazeSize, mazeSize];
-		spawnPos.transform.position = new Vector2(startX + 0.32f, startY + 0.32f);
 		fillFullCells();
 		CarveMazePath((short)startX, (short)startY);
+		spawnPos.transform.position = new Vector2(startX + 0.32f, startY + 0.32f);
 		return maze;
 	}
 

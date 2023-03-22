@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class LoadingScreen : MonoBehaviour
 {
 	[SerializeField] private Image panel;
+	[SerializeField] private GameObject uiPrefab;
 	[SerializeField] private float fadeDuration = 1.0f;
 
 	private void Start()
@@ -28,6 +29,7 @@ public class LoadingScreen : MonoBehaviour
 		while (timer < fadeDuration)
 		{
 			timer += Time.deltaTime;
+			uiPrefab.SetActive(false);
 			panelColor.a = Mathf.Lerp(0, 1, timer / fadeDuration);
 			panel.color = panelColor;
 			yield return null;
@@ -52,6 +54,7 @@ public class LoadingScreen : MonoBehaviour
 			timer += Time.deltaTime;
 			panelColor.a = Mathf.Lerp(1, 0, timer / fadeDuration);
 			panel.color = panelColor;
+			uiPrefab.SetActive(!asyncOperation.isDone);
 			yield return null;
 		}
 	}

@@ -24,7 +24,7 @@ public class Player : MonoBehaviour, IDamageable
 	#endregion
 
 	#region Gameplay
-	private int Exp, Level;
+	private int Exp, Level, Gold;
 	#endregion
 
 	private float HP, maxHP;
@@ -106,4 +106,5 @@ public class Player : MonoBehaviour, IDamageable
 	public int getExp() { return Exp; }
 	public void setLevel(int level) { Level = level; }
 	public void setExp(int exp) { Exp = exp; }
+	public int getGold() { return Gold; }
 }

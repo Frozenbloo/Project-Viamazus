@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,6 +8,8 @@ public class GameManager : MonoBehaviour
 {
     //needs to be accessed everywhere
     public static GameManager instance;
+
+	public TextMeshProUGUI goldText;
 
 	private void Awake()
 	{
@@ -19,7 +22,13 @@ public class GameManager : MonoBehaviour
 		player.setExp(playerExp);
 		//Adds the saveState function to the sceneLoaded event
 		SceneManager.sceneLoaded += LoadState;
+		SetUIValues();
 		DontDestroyOnLoad(gameObject);
+	}
+
+	private void SetUIValues()
+	{
+		goldText.text = player.getGold().ToString();
 	}
 
 	#region GamePlay
