@@ -17,7 +17,7 @@ public class WeaponHolder : MonoBehaviour
 		{
 			scale.y = -1;
 		}
-		else if(direction.x > 0){
+		else if(direction.x > 0) {
 			scale.y = 1;
 		}
 		transform.localScale = scale;
