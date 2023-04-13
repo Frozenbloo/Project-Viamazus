@@ -5,13 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Level/Scenes/Hub.unity
     guid: 2cda990e2423bbf4892e6590ba056729
-  - enabled: 0
+  - enabled: 1
     path: Assets/Level/Scenes/MazeWorld.unity
     guid: 8cb5bf8bb0f8c874abe18e8ce840c106
-  - enabled: 1
+  - enabled: 0
     path: Assets/Level/Menus/MainMenu.unity
     guid: 896278ab56ee18747ad917bb350655b2
   m_configObjects: {}
