@@ -17,14 +17,13 @@ public class MazeDoor : Interactable, IDialogue, IConfirmation
 	public string[] ButtonTexts { get; set; }
 	public Action[] ButtonActions { get; set; }
 
-	public ConfirmationManager confirmationManager;
+	private ConfirmationManager confirmationManager;
 
 	private string pName = "The Maze's Whisper:";
 
 	protected override void Start()
 	{
 		confirmationManager = FindObjectOfType<ConfirmationManager>();
-		if (confirmationManager != null) Debug.Log("ConfirmationManager Found");
 		base.Start();
 	}
 
@@ -40,18 +39,11 @@ public class MazeDoor : Interactable, IDialogue, IConfirmation
 	{
 		Message = "Are you sure you want to enter the maze?";
 		ButtonTexts = new string[] { "Yes", "No" };
-		ButtonActions = new Action[] { () => 
-		{ 
-			Debug.Log("Exit confirmed");
-			
-		}, () => { Debug.Log("Exit canceled"); } };
+		ButtonActions = new Action[] { () => { }, () => { } };
 
 		confirmationManager.StartConfirmation(this);
 	}
-	public void OnConfirmationEnd()
-	{
-		Debug.Log("Confirmation ended");
-	}
+	public void OnConfirmationEnd() { }
 
 	protected override void OnCollide(Collider2D collider)
 	{
@@ -60,10 +52,5 @@ public class MazeDoor : Interactable, IDialogue, IConfirmation
 			FindObjectOfType<DialogueManager>().StartDialogue(this, gameObject);
 		}
 		else base.OnCollide(collider);
-	}
-
-	public void LoadScene(string sceneName)
-	{
-		SceneManager.LoadScene(sceneName);
 	}
 }

@@ -7,8 +7,8 @@ public class ButtonManager : MonoBehaviour
 {
     public void PlayButton()
     {
-
-    }
+		SceneManager.LoadScene("Hub");
+	}
 
     public void SettingsButton()
     {

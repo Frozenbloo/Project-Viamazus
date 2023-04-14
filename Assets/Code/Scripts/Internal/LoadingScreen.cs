@@ -54,7 +54,7 @@ public class LoadingScreen : MonoBehaviour
 			timer += Time.deltaTime;
 			panelColor.a = Mathf.Lerp(1, 0, timer / fadeDuration);
 			panel.color = panelColor;
-			uiPrefab.SetActive(!asyncOperation.isDone);
+			if (uiPrefab != null) uiPrefab.SetActive(!asyncOperation.isDone);
 			yield return null;
 		}
 	}
