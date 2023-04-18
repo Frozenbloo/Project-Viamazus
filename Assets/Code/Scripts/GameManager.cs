@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
 	public TextMeshProUGUI goldText;
+	public Image healthBar;
 
 	private void Awake()
 	{
@@ -22,8 +24,16 @@ public class GameManager : MonoBehaviour
 		player.setExp(playerExp);
 		//Adds the saveState function to the sceneLoaded event
 		SceneManager.sceneLoaded += LoadState;
+		
+		//this.player = GetComponent<Player>();
+
 		SetUIValues();
 		DontDestroyOnLoad(gameObject);
+	}
+
+	private void Update()
+	{
+		healthBar.fillAmount = player.HP / player.maxHP;
 	}
 
 	private void SetUIValues()

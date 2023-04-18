@@ -10,7 +10,7 @@ public class LoadingScreen : MonoBehaviour
 	[SerializeField] private GameObject uiPrefab;
 	[SerializeField] private float fadeDuration = 1.0f;
 
-	private void Start()
+	private void Awake()
 	{
 		panel.gameObject.SetActive(false);
 	}

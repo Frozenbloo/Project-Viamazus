@@ -27,7 +27,7 @@ public class Player : MonoBehaviour, IDamageable
 	private int Exp, Level, Gold;
 	#endregion
 
-	private float HP, maxHP;
+	public float HP, maxHP;
 	public GameObject weapon;
 
 	void moveSpawnPosition()
@@ -35,7 +35,6 @@ public class Player : MonoBehaviour, IDamageable
 		transform.position = spawnPoint.position;
 	}
 
-	// Start is called before the first frame update
 	void Start()
     {
 		boxCollider2D = GetComponent<BoxCollider2D>();
@@ -49,7 +48,6 @@ public class Player : MonoBehaviour, IDamageable
 		weaponHolder = GetComponentInChildren<WeaponHolder>();
 	}
 
-    // Update is called once per frame
     void FixedUpdate()
     {
 		#region Movement
@@ -97,9 +95,31 @@ public class Player : MonoBehaviour, IDamageable
 		#endregion
 	}
 
+	public void killPlayer()
+	{
+
+	}
+
 	public void Damage(float dmgAmount)
 	{
-		
+		float tempHP = HP - dmgAmount;
+		if (tempHP <= 0) killPlayer();
+		else if (!(tempHP > maxHP)) 
+		{
+			HP = tempHP;
+		}
+	}
+
+	public void speedUp(float multiplier, int dur)
+	{
+		StartCoroutine(FasterCoroutine(multiplier, dur));
+	}
+
+	IEnumerator FasterCoroutine(float multiplier, int dur)
+	{
+		playerSpeed = playerSpeed * multiplier;
+		yield return new WaitForSeconds((float)dur);
+		playerSpeed = playerSpeed / multiplier;
 	}
 
 	public int getLevel() { return Level; }
