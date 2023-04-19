@@ -30,6 +30,12 @@ public class Player : MonoBehaviour, IDamageable
 	public float HP, maxHP;
 	public GameObject weapon;
 
+	IEnumerator TeleportToSpawn(float time)
+	{
+		yield return new WaitForSeconds(time);
+		moveSpawnPosition();
+	}
+
 	void moveSpawnPosition()
 	{
 		transform.position = spawnPoint.position;
@@ -38,7 +44,8 @@ public class Player : MonoBehaviour, IDamageable
 	void Start()
     {
 		boxCollider2D = GetComponent<BoxCollider2D>();
-		moveSpawnPosition();
+		if (SceneManager.GetActiveScene().name == "MazeWorld")StartCoroutine(TeleportToSpawn(0.01f));
+		else moveSpawnPosition();
 		if (SceneManager.GetActiveScene().name == "Hub") weapon.SetActive(false);
 		else weapon.SetActive(true);
 	}

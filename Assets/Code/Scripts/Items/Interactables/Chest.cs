@@ -20,6 +20,7 @@ public class Chest : Interactable
 
 	protected override void OnCollide(Collider2D collider)
 	{
+		Debug.Log("COLLISION WITH CHEST");
 		if (Input.GetButtonDown("Interact") && !isChestOpen)
 		{
 			OpenTheChest();

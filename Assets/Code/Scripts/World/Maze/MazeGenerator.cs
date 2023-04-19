@@ -28,7 +28,7 @@ public class MazeGenerator : MonoBehaviour
 		maze = new MazeCell[mazeSize, mazeSize];
 		fillFullCells();
 		CarveMazePath((short)startX, (short)startY);
-		spawnPos.transform.position = new Vector2(startX + 0.32f, startY + 0.32f);
+		spawnPos.transform.position = new Vector2(startX + 0.10f, startY + 0.30f);
 		return maze;
 	}
 

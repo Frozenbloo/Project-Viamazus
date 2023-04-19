@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 8683414232062135082}
   - component: {fileID: 4361667089380092380}
   - component: {fileID: 5482766978803558589}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Chest
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3195163394165628289}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.0152, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -140,5 +140,4 @@ MonoBehaviour:
     maxNormalAngle: 0
   chestSpriteRenderer: {fileID: 4361667089380092380}
   openChest: {fileID: -2094136180, guid: 62498f7ad8cc8bc4abd96c7fd848ce67, type: 3}
-  chestDrops:
-  - {fileID: 3879278080133659464, guid: f8316b19995204e46822055164fe3b40, type: 3}
+  chestDrops: []
