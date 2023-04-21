@@ -5,12 +5,12 @@ using UnityEngine;
 
 public class Chest : Interactable
 {
-	public SpriteRenderer chestSpriteRenderer;
-    public Sprite openChest;
+	[SerializeField] SpriteRenderer chestSpriteRenderer;
+	[SerializeField] Sprite openChest;
+	[Header("Drops")]
+	[SerializeField] List<GameObject> chestDrops;
 
 	private bool isChestOpen = false;
-
-	public List<GameObject> chestDrops;
 
 	private void OpenTheChest()
 	{
@@ -20,7 +20,6 @@ public class Chest : Interactable
 
 	protected override void OnCollide(Collider2D collider)
 	{
-		Debug.Log("COLLISION WITH CHEST");
 		if (Input.GetButtonDown("Interact") && !isChestOpen)
 		{
 			OpenTheChest();

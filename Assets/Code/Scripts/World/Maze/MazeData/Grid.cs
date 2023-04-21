@@ -1,11 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.RuleTile.TilingRuleOutput;
 
 public class Grid
 {
-
     private int width, height;
 	private float size;
     private int[,] gridArr;
@@ -19,17 +15,6 @@ public class Grid
 
 		gridArr = new int[width, height];
 		cellVisited = new bool[width, height];
-
-		for (int x = 0; x < gridArr.GetLength(0); x++)
-		{
-			for (int y = 0; y < gridArr.GetLength(1); y++)
-			{
-				//Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x, y + 1), Color.white, 100f);
-				//Debug.DrawLine(GetWorldPosition(x, y), GetWorldPosition(x + 1, y), Color.white, 100f);
-			}
-		}
-		//Debug.DrawLine(GetWorldPosition(0, height), GetWorldPosition(width, height), Color.white, 100f);
-		//Debug.DrawLine(GetWorldPosition(width, 0), GetWorldPosition(width, height), Color.white, 100f);
 	}
 
 	public void SetCellValue(int x, int y, int value)

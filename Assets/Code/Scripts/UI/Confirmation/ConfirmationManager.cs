@@ -7,9 +7,9 @@ using UnityEngine.UI;
 
 public class ConfirmationManager : MonoBehaviour
 {
-	public GameObject confirmationScreen;
-	public TextMeshProUGUI messageText;
-	public Button[] buttons;
+	[SerializeField] GameObject confirmationScreen;
+	[SerializeField] TextMeshProUGUI messageText;
+	[SerializeField] Button[] buttons;
 
 	private IConfirmation confirmation;
 

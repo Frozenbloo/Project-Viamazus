@@ -10,7 +10,6 @@ public enum Dirs
     West
 }
 
-
 public class MazeCell : ICell
 {
     private bool beenVisited;

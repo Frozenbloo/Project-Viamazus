@@ -5,13 +5,14 @@ public class MazeGenerator : MonoBehaviour
 {
 	//Range from 5 to 40
 	[Range(5, 40)]
-	public short mazeSize = 5;
-	private float startX, startY, endX, endY;
-	private System.Random rand = new System.Random();
-	public GameObject spawnPos;
+	[SerializeField] public short mazeSize = 5;
+	[SerializeField] GameObject spawnPos;
 
 	private List<Vector2Int> cellPath = new List<Vector2Int>();
 	private List<Dirs> randomDir = new List<Dirs> { Dirs.North, Dirs.South, Dirs.East, Dirs.West };
+
+	private float startX, startY, endX, endY;
+	private System.Random rand = new System.Random();
 
 	private MazeCell[,] maze;
 

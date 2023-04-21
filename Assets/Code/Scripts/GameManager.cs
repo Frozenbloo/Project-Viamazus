@@ -7,11 +7,11 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
-    //needs to be accessed everywhere
-    public static GameManager instance;
+	//needs to be accessed everywhere
+	[SerializeField] static GameManager instance;
 
-	public TextMeshProUGUI goldText;
-	public Image healthBar;
+	[SerializeField] TextMeshProUGUI goldText;
+	[SerializeField] Image healthBar;
 
 	private void Awake()
 	{

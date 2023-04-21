@@ -6,9 +6,9 @@ using UnityEngine.EventSystems;
 
 public class TextColourManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-	public TextMeshProUGUI buttonText;
-	public Color hoverTextColor;
-	public float fadeDuration = 1f;
+	[SerializeField] TextMeshProUGUI buttonText;
+	[SerializeField] Color hoverTextColor;
+	[SerializeField] float fadeDuration = 1f;
 
 	private Color defaultTextColor;
 	private Coroutine fadeCoroutine;

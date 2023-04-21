@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class TextButtonAnimation : MonoBehaviour
 {
-	public Image outline;
-	public Color hoverColor;
+	[SerializeField] Image outline;
+	[SerializeField] Color hoverColor;
 
 	private Color defaultColor;
 

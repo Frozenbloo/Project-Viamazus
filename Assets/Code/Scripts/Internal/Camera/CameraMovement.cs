@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    public Transform player;
+	[SerializeField] Transform player;
     private float xBound = 0.45f, yBound = 0.15f;
 
 	void LateUpdate()

@@ -6,13 +6,13 @@ using UnityEngine;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI text;
-    public TextMeshProUGUI npcName;
-    public GameObject dialogueBox;
-    public float dialogueSpeed;
-    public float maxDist = 0.32f;
+	[SerializeField] TextMeshProUGUI text;
+	[SerializeField] TextMeshProUGUI npcName;
+	[SerializeField] GameObject dialogueBox;
+	[SerializeField] float dialogueSpeed;
+	[SerializeField] float maxDist = 0.32f;
 
-    public Transform playerTransform;
+	[SerializeField] Transform playerTransform;
 
     private string sentence;
     private IDialogue dialogue;

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class HealthPotion : Interactable
 {
-	public int healthAmount;
+	[SerializeField] int healthAmount;
 
 	private void healEntity(Player player)
 	{
