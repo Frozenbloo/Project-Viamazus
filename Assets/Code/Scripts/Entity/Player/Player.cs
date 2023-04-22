@@ -1,14 +1,12 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour, IDamageable
 {
 	#region Movement Vars
-	public float playerSpeed = 1f;
-	public Transform spawnPoint;
+	[SerializeField] float playerSpeed = 1f;
+	[SerializeField] Transform spawnPoint;
 	private BoxCollider2D boxCollider2D;
 	private Vector3 movementVector;
 	private RaycastHit2D hitRaycast;
@@ -27,8 +25,8 @@ public class Player : MonoBehaviour, IDamageable
 	private int Exp, Level, Gold;
 	#endregion
 
-	public float HP, maxHP;
-	public GameObject weapon;
+	[SerializeField] float HP, maxHP;
+	[SerializeField] GameObject weapon;
 
 	IEnumerator TeleportToSpawn(float time)
 	{

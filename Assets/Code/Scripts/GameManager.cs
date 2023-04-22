@@ -9,7 +9,6 @@ public class GameManager : MonoBehaviour
 {
 	//needs to be accessed everywhere
 	[SerializeField] static GameManager instance;
-
 	[SerializeField] TextMeshProUGUI goldText;
 	[SerializeField] Image healthBar;
 
@@ -24,8 +23,6 @@ public class GameManager : MonoBehaviour
 		player.setExp(playerExp);
 		//Adds the saveState function to the sceneLoaded event
 		SceneManager.sceneLoaded += LoadState;
-		
-		//this.player = GetComponent<Player>();
 
 		SetUIValues();
 		DontDestroyOnLoad(gameObject);

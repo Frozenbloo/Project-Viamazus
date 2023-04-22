@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 8785359939416521768}
   - component: {fileID: 1883046375802036478}
   - component: {fileID: 4912373041381751552}
+  - component: {fileID: 7327371400521137640}
   m_Layer: 7
   m_Name: Blocking South
   m_TagString: Untagged
@@ -233,6 +234,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!208 &7327371400521137640
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759888924457747913}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.32, y: 0.08, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.4, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1874365565246272659
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,6 +729,7 @@ GameObject:
   - component: {fileID: 8057297596932035035}
   - component: {fileID: 7523819964678929028}
   - component: {fileID: 7005998192067672627}
+  - component: {fileID: 247721701055675258}
   m_Layer: 7
   m_Name: Blocking North
   m_TagString: Untagged
@@ -901,6 +919,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!208 &247721701055675258
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4228341215403580315}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.32000002, y: 0.080000006, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0.08, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &4838209468510971510
 GameObject:
   m_ObjectHideFlags: 0
@@ -913,6 +947,7 @@ GameObject:
   - component: {fileID: 5441341180369550697}
   - component: {fileID: 8204324429687833462}
   - component: {fileID: 4631959515207921454}
+  - component: {fileID: 1890351619817876381}
   m_Layer: 7
   m_Name: BlockingWest
   m_TagString: Untagged
@@ -1102,6 +1137,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!208 &1890351619817876381
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4838209468510971510}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.08, y: 0.32000002, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.24, y: -0.16000001, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5083188449015381737
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,6 +1669,7 @@ GameObject:
   - component: {fileID: 7620729443155727325}
   - component: {fileID: 4501231490324085336}
   - component: {fileID: 7282574325073649477}
+  - component: {fileID: 3198735547490896596}
   m_Layer: 7
   m_Name: Blocking East
   m_TagString: Untagged
@@ -1807,6 +1859,22 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
+--- !u!208 &3198735547490896596
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7328811927369299004}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.08, y: 0.32, z: 0.00001}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.24, y: -0.16, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &7371414544517766172
 GameObject:
   m_ObjectHideFlags: 0
