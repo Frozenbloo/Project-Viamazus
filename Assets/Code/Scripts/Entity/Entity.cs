@@ -13,10 +13,13 @@ public class Entity : MonoBehaviour, IDamageable
     [SerializeField] float entityMaxHealth;
     private float entityHealth;
 
+    [Header("Pathfinding 'Radar'")]
+	[SerializeField] int numOfRays = 12;
+
 	// Start is called before the first frame update
 	void Start()
     {
-        FullyHeal();
+		FullyHeal();
     }
 
     // Update is called once per frame
@@ -51,7 +54,39 @@ public class Entity : MonoBehaviour, IDamageable
 	#region Pathfinding
 	public virtual void Pathfind()
     {
-        
+        PingRadar();
+    }
+
+    public virtual void WanderAround()
+    {
+
+    }
+
+    public virtual void Go2Player()
+    {
+
+    }
+
+    private void PingRadar()
+    {
+        float angleInRads = 2 * Mathf.PI / numOfRays; //Calculates the angle between each ray
+		for (int i = 0; i < numOfRays; i++)
+        {
+            float x = Mathf.Sin(angleInRads * i);
+            float y = Mathf.Cos(angleInRads * i);
+
+            Vector2 direction = new Vector2(x, y);
+            RaycastHit2D radarHitInfo = Physics2D.Raycast(transform.position, direction);
+
+            if (radarHitInfo.collider != null && !radarHitInfo.collider.CompareTag("Player"))
+            {
+                Go2Player();
+            }
+            else
+            {
+                WanderAround();
+            }
+        }
     }
 	#endregion
 }

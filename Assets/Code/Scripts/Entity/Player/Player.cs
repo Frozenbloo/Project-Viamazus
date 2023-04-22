@@ -25,7 +25,7 @@ public class Player : MonoBehaviour, IDamageable
 	private int Exp, Level, Gold;
 	#endregion
 
-	[SerializeField] float HP, maxHP;
+	[SerializeField] public float HP, maxHP;
 	[SerializeField] GameObject weapon;
 
 	IEnumerator TeleportToSpawn(float time)

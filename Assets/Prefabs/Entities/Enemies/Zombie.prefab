@@ -127,5 +127,6 @@ MonoBehaviour:
   object2Pathfind2: {fileID: 3879278080133659464, guid: f8316b19995204e46822055164fe3b40, type: 3}
   pathfindingRadius: 10
   moveSpeed: 2
-  rigidbody2d: {fileID: 0}
   entityMaxHealth: 10
+  radarRange: 0.64
+  numOfRays: 30

@@ -407,6 +407,7 @@ MonoBehaviour:
   mazeCell: {fileID: 7754048719276588501, guid: 82a93ed1abac62a4eb6dd50c76db02d8, type: 3}
   chestObject: {fileID: 3195163394165628289, guid: ffc17f25d66211f4fbe0a8cc1e6729fc, type: 3}
   chestChance: 4
+  zombieObject: {fileID: 7159388515769896525, guid: fb3acdc89eb9bfa48b3c5a0296b383e8, type: 3}
   cellSize: 0.64
 --- !u!114 &1136930826 stripped
 MonoBehaviour:
