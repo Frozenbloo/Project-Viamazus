@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Player : MonoBehaviour, IDamageable
+public class Player : MonoBehaviour, IDamageable, ISave
 {
 	[Header("Movement")]
 	[SerializeField] float playerSpeed = 1f;
@@ -13,17 +13,32 @@ public class Player : MonoBehaviour, IDamageable
 	private BoxCollider2D boxCollider2D;
 	private Vector3 movementVector;
 	private RaycastHit2D hitRaycast;
-
 	Vector3 mousePos;
 
 	[Header("Stats")]
-	[SerializeField] public float HP, maxHP;
+	public float HP, maxHP;
 	[SerializeField] GameObject weapon;
-	[SerializeField] float weaponDmg = 1f;
+	private float weaponDmg = 1f;
 	private WeaponHolder weaponHolder;
 
 	[Header("Gameplay")]
-	private int Exp, Level, Gold;
+	private int Exp, Level;
+
+	#region SaveStuff
+	public void LoadData(GameSave data)
+	{
+		weaponDmg = data.weaponDmg;
+		Level = data.playerLvl;
+		maxHP = data.playerMaxHP;
+	}
+
+	public void SaveData(ref GameSave data)
+	{
+		data.weaponDmg = weaponDmg;
+		data.playerLvl = Level;
+		data.playerMaxHP = maxHP;
+	}
+	#endregion
 
 	#region UnityMessages
 
@@ -90,7 +105,6 @@ public class Player : MonoBehaviour, IDamageable
 		#endregion
 	}
 	#endregion
-
 
 	#region Gameplay Mechanics
 	public void killPlayer()
@@ -159,5 +173,4 @@ public class Player : MonoBehaviour, IDamageable
 	public int getExp() { return Exp; }
 	public void setLevel(int level) { Level = level; }
 	public void setExp(int exp) { Exp = exp; }
-	public int getGold() { return Gold; }
 }

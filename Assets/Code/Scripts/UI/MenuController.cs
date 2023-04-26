@@ -1,8 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
+
 public class MenuController : MonoBehaviour
 {
 	[SerializeField] GameObject secondPanel;
@@ -13,6 +12,7 @@ public class MenuController : MonoBehaviour
 	[SerializeField] float textFlashDuration = 0.5f;
 	[SerializeField] float minAlpha = 0.2f;
 	[SerializeField] float maxAlpha = 0.8f;
+	[SerializeField] TextMeshProUGUI playButtonText;
 
 	private CanvasGroup firstPanelCanvasGroup;
 	private bool isFading = false;
@@ -33,6 +33,15 @@ public class MenuController : MonoBehaviour
 			StopAllCoroutines();
 			StartCoroutine(FadeOutPressAnyButtonText());
 			StartCoroutine(FadeOutFirstPanel());
+		}
+
+		if (!SaveSystemManager.instance.HasSaveData())
+		{
+			playButtonText.text = "NEW GAME";
+		}
+		else
+		{
+			playButtonText.text = "CONTINUE";
 		}
 	}
 

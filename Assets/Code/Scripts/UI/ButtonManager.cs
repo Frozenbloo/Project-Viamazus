@@ -9,7 +9,12 @@ public class ButtonManager : MonoBehaviour
 {
     public void PlayButton()
     {
-		SceneManager.LoadScene("Hub");
+		if (!SaveSystemManager.instance.HasSaveData())
+		{
+			SaveSystemManager.instance.NewGame();
+			SceneManager.LoadSceneAsync("Tutorial");
+		}
+		else SceneManager.LoadSceneAsync("Hub");
 	}
 
     public void SettingsButton(GameObject settingsArea)

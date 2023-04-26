@@ -1,13 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
-using System.IO.IsolatedStorage;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.UI;
 
-public class SettingsManager : MonoBehaviour
+public class SettingsManager : MonoBehaviour, ISave
 {
 	[SerializeField] float fadeDuration;
 
@@ -15,21 +12,25 @@ public class SettingsManager : MonoBehaviour
 	[SerializeField] AudioMixer masterAudioMixer;
 	[SerializeField] TextMeshProUGUI masterSliderValue;
 	[SerializeField] Slider masterSlider;
+	private float savedMasterValue;
 
 	[Header("Music Volume")]
 	[SerializeField] AudioMixer musicAudioMixer;
 	[SerializeField] TextMeshProUGUI musicSliderValue;
 	[SerializeField] Slider musicSlider;
+	private float savedMusicValue;
 
 	[Header("SFX Volume")]
 	[SerializeField] AudioMixer sfxAudioMixer;
 	[SerializeField] TextMeshProUGUI sfxSliderValue;
 	[SerializeField] Slider sfxSlider;
+	private float savedSFXValue;
 
 	[Header("UI Volume")]
 	[SerializeField] AudioMixer uiAudioMixer;
 	[SerializeField] TextMeshProUGUI uiSliderValue;
 	[SerializeField] Slider uiSlider;
+	private float savedUIValue;
 
 	private bool settingsOn = false;
 
@@ -82,29 +83,53 @@ public class SettingsManager : MonoBehaviour
 
 	public void SetMasterVolume()
 	{
-		masterSliderValue.text = Mathf.RoundToInt(masterSlider.value + 80).ToString() + "%";
-
 		masterAudioMixer.SetFloat("Master", masterSlider.value);
 	}
 
 	public void SetMusicVolume()
 	{
-		musicSliderValue.text = Mathf.RoundToInt(musicSlider.value + 80).ToString() + "%";
-
 		musicAudioMixer.SetFloat("Music", musicSlider.value);
 	}
 
 	public void SetSFXVolume()
 	{
-		sfxSliderValue.text = Mathf.RoundToInt(sfxSlider.value + 80).ToString() + "%";
-
 		sfxAudioMixer.SetFloat("SFX", sfxSlider.value);
 	}
 
 	public void SetUIVolume()
 	{
-		uiSliderValue.text = Mathf.RoundToInt(uiSlider.value + 80).ToString() + "%";
-
 		uiAudioMixer.SetFloat("UI", uiSlider.value);
+	}
+
+	private void Update()
+	{
+		masterSliderValue.text = Mathf.RoundToInt(masterSlider.value + 80).ToString() + "%";
+		musicSliderValue.text = Mathf.RoundToInt(musicSlider.value + 80).ToString() + "%";
+		sfxSliderValue.text = Mathf.RoundToInt(sfxSlider.value + 80).ToString() + "%";
+		uiSliderValue.text = Mathf.RoundToInt(uiSlider.value + 80).ToString() + "%";
+	}
+
+	private void Start()
+	{
+		masterSlider.value = savedMasterValue;
+		musicSlider.value = savedMusicValue;
+		sfxSlider.value = savedSFXValue;
+		uiSlider.value = savedUIValue;
+	}
+
+	public void LoadData(GameSave data)
+	{
+		savedMasterValue = data.masterVolume;
+		savedMusicValue = data.musicVolume;
+		savedSFXValue = data.SFXVolume;
+		savedUIValue = data.UIVolume;
+	}
+
+	public void SaveData(ref GameSave data)
+	{
+		data.masterVolume = masterSlider.value;
+		data.musicVolume = musicSlider.value;
+		data.SFXVolume = sfxSlider.value;
+		data.UIVolume = uiSlider.value;
 	}
 }
