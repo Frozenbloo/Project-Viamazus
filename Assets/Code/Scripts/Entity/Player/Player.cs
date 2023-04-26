@@ -1,12 +1,15 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IDamageable
 {
 	#region Movement Vars
 	[SerializeField] float playerSpeed = 1f;
 	[SerializeField] Transform spawnPoint;
+	[SerializeField] bool canMove = true;
 	private BoxCollider2D boxCollider2D;
 	private Vector3 movementVector;
 	private RaycastHit2D hitRaycast;
@@ -55,41 +58,43 @@ public class Player : MonoBehaviour, IDamageable
 
     void FixedUpdate()
     {
-		#region Movement
-		// Get horizontal and vertical input
-		float xInput = Input.GetAxisRaw("Horizontal");
-		float yInput = Input.GetAxisRaw("Vertical");
-
-		// Set the movement vector and Normalise it
-		movementVector = new Vector2(xInput, yInput).normalized;
-
-		// Flip the player sprite if moving left
-		if (xInput < 0)
+		if (canMove)
 		{
-			//GetComponent<SpriteRenderer>().transform.localScale = new Vector3(-1, 1, 1);
-			GetComponent<SpriteRenderer>().flipX = true;
-		}
-		// Flip the player sprite if moving right
-		else if (xInput > 0)
-		{
-			//GetComponent<SpriteRenderer>().transform.localScale = new Vector3(1, 1, 1);
-			GetComponent<SpriteRenderer>().flipX = false;
+			#region Movement
+			// Get horizontal and vertical input
+			float xInput = Input.GetAxisRaw("Horizontal");
+			float yInput = Input.GetAxisRaw("Vertical");
+
+			// Set the movement vector and Normalise it
+			movementVector = new Vector2(xInput, yInput).normalized;
+
+			// Flip the player sprite if moving left
+			if (xInput < 0)
+			{
+				GetComponent<SpriteRenderer>().flipX = true;
+			}
+			// Flip the player sprite if moving right
+			else if (xInput > 0)
+			{
+				GetComponent<SpriteRenderer>().flipX = false;
+			}
+
+			hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(0, movementVector.y), Mathf.Abs(movementVector.y * Time.deltaTime), LayerMask.GetMask("Entity", "Blocking"));
+			if (hitRaycast.collider == null)
+			{
+				//Move the player
+				transform.Translate(0, movementVector.y * playerSpeed * Time.fixedDeltaTime, 0);
+			}
+
+			hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(movementVector.x, 0), Mathf.Abs(movementVector.x * Time.deltaTime), LayerMask.GetMask("Entity", "Blocking"));
+			if (hitRaycast.collider == null)
+			{
+				//Move the player
+				transform.Translate(movementVector.x * playerSpeed * Time.fixedDeltaTime, 0, 0);
+			}
+			#endregion
 		}
 
-		hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(0, movementVector.y), Mathf.Abs(movementVector.y * Time.deltaTime), LayerMask.GetMask("Entity", "Blocking"));
-		if (hitRaycast.collider == null) 
-		{
-			//Move the player
-			transform.Translate(0, movementVector.y * playerSpeed * Time.fixedDeltaTime, 0);
-		}
-
-		hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(movementVector.x, 0), Mathf.Abs(movementVector.x * Time.deltaTime), LayerMask.GetMask("Entity", "Blocking"));
-		if (hitRaycast.collider == null)
-		{
-			//Move the player
-			transform.Translate(movementVector.x * playerSpeed * Time.fixedDeltaTime, 0, 0);
-		}
-		#endregion
 		weaponHolder.pointerPos = mousePos;
 	}
 
@@ -102,14 +107,18 @@ public class Player : MonoBehaviour, IDamageable
 
 	public void killPlayer()
 	{
-
+		StartCoroutine(FadeInGameOver());
 	}
 
 	public void Damage(float dmgAmount)
 	{
 		float tempHP = HP - dmgAmount;
-		if (tempHP <= 0) killPlayer();
-		else if (!(tempHP > maxHP)) 
+		if (tempHP <= 0)
+		{
+			GameObject.Find("HealthBar").GetComponent<Image>().fillAmount = 0;
+			killPlayer();
+		}
+		else if (!(tempHP > maxHP))
 		{
 			HP = tempHP;
 		}
@@ -125,6 +134,23 @@ public class Player : MonoBehaviour, IDamageable
 		playerSpeed = playerSpeed * multiplier;
 		yield return new WaitForSeconds((float)dur);
 		playerSpeed = playerSpeed / multiplier;
+	}
+
+	IEnumerator FadeInGameOver()
+	{
+		TextMeshProUGUI gameOverText = GameObject.Find("GameOver").GetComponent<TextMeshProUGUI>();
+		gameOverText.alpha = 0f;
+
+		float t = 0f;
+		while (t < 1f)
+		{
+			t += Time.deltaTime;
+			gameOverText.alpha = Mathf.Clamp01(t / 1f);
+			yield return null;
+		}
+		gameOverText.alpha = 1f;
+		yield return new WaitForSeconds(1f);
+		SceneManager.LoadSceneAsync("Hub");
 	}
 
 	public int getLevel() { return Level; }

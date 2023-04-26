@@ -9,8 +9,9 @@ public class GameManager : MonoBehaviour
 {
 	//needs to be accessed everywhere
 	[SerializeField] static GameManager instance;
-	[SerializeField] TextMeshProUGUI goldText;
-	[SerializeField] Image healthBar;
+	private TextMeshProUGUI goldText;
+	private Image healthBar;
+
 
 	private void Awake()
 	{
@@ -21,9 +22,12 @@ public class GameManager : MonoBehaviour
 		}
 		instance = this;
 		player.setExp(playerExp);
+
+		healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+		goldText = GameObject.Find("GoldAmount").GetComponent<TextMeshProUGUI>();
+
 		//Adds the saveState function to the sceneLoaded event
 		SceneManager.sceneLoaded += LoadState;
-
 		SetUIValues();
 		DontDestroyOnLoad(gameObject);
 	}
@@ -69,6 +73,8 @@ public class GameManager : MonoBehaviour
 
 	public void LoadState(Scene scene, LoadSceneMode loadSceneMode) 
 	{
+		healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
+		goldText = GameObject.Find("GoldAmount").GetComponent<TextMeshProUGUI>();
 		Debug.Log("Attemping To Load from Save Game");
 		if (PlayerPrefs.HasKey("SaveGame"))
 		{

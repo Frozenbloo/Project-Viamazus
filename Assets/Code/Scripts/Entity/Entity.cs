@@ -1,31 +1,46 @@
-using UnityEngine.AI;
 using UnityEngine;
-using Unity.VisualScripting;
 
 public class Entity : MonoBehaviour, IDamageable
 {
     [Header("Pathfinding")]
-    [SerializeField] GameObject object2Pathfind2;
     [SerializeField] float pathfindingRadius;
     [SerializeField] float moveSpeed;
+	private GameObject object2Pathfind2;
 
 	[Header("Stats")]
     [SerializeField] float entityMaxHealth;
+	[SerializeField] float damage;
+
     private float entityHealth;
 
     [Header("Pathfinding 'Radar'")]
-	[SerializeField] int numOfRays = 12;
+	[SerializeField] int numOfRays = 30;
+	[SerializeField] ContactFilter2D contactFilter;
+
+	private Vector3 movementVector;
+	private BoxCollider2D boxCollider2D;
+	private RaycastHit2D hitRaycast;
+	private Collider2D[] hits = new Collider2D[10];
+	
 
 	// Start is called before the first frame update
 	void Start()
     {
 		FullyHeal();
+		
     }
+
+	void Awake()
+	{
+		object2Pathfind2 = GameObject.Find("Player");
+		boxCollider2D = GetComponent<BoxCollider2D>();
+	}
 
     // Update is called once per frame
     void FixedUpdate()
     {
         Pathfind();
+		CheckCollision();
     }
 
 	#region Health
@@ -59,16 +74,41 @@ public class Entity : MonoBehaviour, IDamageable
 
     public virtual void WanderAround()
     {
-
-    }
+	    //
+	}
 
     public virtual void Go2Player()
     {
+		float xMovement = object2Pathfind2.transform.position.x - transform.position.x;
 
-    }
+		// Set the movement vector and Normalise it
+		movementVector = (object2Pathfind2.transform.position - transform.position).normalized;
+
+		if (xMovement < 0)
+		{
+			GetComponent<SpriteRenderer>().flipX = true;
+		}
+		else if (xMovement > 0)
+		{
+			GetComponent<SpriteRenderer>().flipX = false;
+		}
+
+		hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(0, movementVector.y), Mathf.Abs(movementVector.y * Time.deltaTime * 0.5f), LayerMask.GetMask("Entity", "Blocking"));
+		if (hitRaycast.collider == null)
+		{
+			transform.Translate(0, movementVector.y * moveSpeed * Time.fixedDeltaTime, 0);
+		}
+
+		hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(movementVector.x, 0), Mathf.Abs(movementVector.x * Time.deltaTime  * 0.5f), LayerMask.GetMask("Entity", "Blocking"));
+		if (hitRaycast.collider == null)
+		{
+			transform.Translate(movementVector.x * moveSpeed * Time.fixedDeltaTime, 0, 0);
+		}
+	}
 
     private void PingRadar()
     {
+		movementVector = Vector3.zero;
         float angleInRads = 2 * Mathf.PI / numOfRays; //Calculates the angle between each ray
 		for (int i = 0; i < numOfRays; i++)
         {
@@ -80,13 +120,44 @@ public class Entity : MonoBehaviour, IDamageable
 
             if (radarHitInfo.collider != null && !radarHitInfo.collider.CompareTag("Player"))
             {
-                Go2Player();
-            }
+				WanderAround();
+			}
             else
             {
-                WanderAround();
-            }
+				Go2Player();
+			}
         }
     }
+	#endregion
+
+	#region Damage
+	public virtual void CheckCollision()
+	{
+		boxCollider2D.OverlapCollider(contactFilter, hits);
+		for (int i = 0; i < hits.Length; i++)
+		{
+			if (hits[i] == null)
+				continue;
+
+			OnCollide(hits[i]);
+
+			//Cleans arr
+			hits[i] = null;
+		}
+	}
+
+	public virtual void OnCollide(Collider2D collider)
+	{
+		if (collider.CompareTag("Player"))
+		{
+			DamagePlayer();
+			Destroy(gameObject);
+		}
+	}
+
+	public virtual void DamagePlayer()
+	{
+		object2Pathfind2.GetComponent<IDamageable>().Damage(damage);
+	}
 	#endregion
 }
