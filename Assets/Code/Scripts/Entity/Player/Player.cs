@@ -6,46 +6,31 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour, IDamageable
 {
-	#region Movement Vars
+	[Header("Movement")]
 	[SerializeField] float playerSpeed = 1f;
 	[SerializeField] Transform spawnPoint;
 	[SerializeField] bool canMove = true;
 	private BoxCollider2D boxCollider2D;
 	private Vector3 movementVector;
 	private RaycastHit2D hitRaycast;
-	#endregion
 
-	#region Data Vars
 	Vector3 mousePos;
 
-	#endregion
-
-	#region Weapon
-	private WeaponHolder weaponHolder;
-	#endregion
-
-	#region Gameplay
-	private int Exp, Level, Gold;
-	#endregion
-
+	[Header("Stats")]
 	[SerializeField] public float HP, maxHP;
 	[SerializeField] GameObject weapon;
+	[SerializeField] float weaponDmg = 1f;
+	private WeaponHolder weaponHolder;
 
-	IEnumerator TeleportToSpawn(float time)
-	{
-		yield return new WaitForSeconds(time);
-		moveSpawnPosition();
-	}
+	[Header("Gameplay")]
+	private int Exp, Level, Gold;
 
-	void moveSpawnPosition()
-	{
-		transform.position = spawnPoint.position;
-	}
+	#region UnityMessages
 
 	void Start()
-    {
+	{
 		boxCollider2D = GetComponent<BoxCollider2D>();
-		if (SceneManager.GetActiveScene().name == "MazeWorld")StartCoroutine(TeleportToSpawn(0.01f));
+		if (SceneManager.GetActiveScene().name == "MazeWorld") StartCoroutine(TeleportToSpawn(0.01f));
 		else moveSpawnPosition();
 		if (SceneManager.GetActiveScene().name == "Hub") weapon.SetActive(false);
 		else weapon.SetActive(true);
@@ -56,8 +41,8 @@ public class Player : MonoBehaviour, IDamageable
 		weaponHolder = GetComponentInChildren<WeaponHolder>();
 	}
 
-    void FixedUpdate()
-    {
+	void FixedUpdate()
+	{
 		if (canMove)
 		{
 			#region Movement
@@ -104,7 +89,10 @@ public class Player : MonoBehaviour, IDamageable
 		mousePos = Input.mousePosition;
 		#endregion
 	}
+	#endregion
 
+
+	#region Gameplay Mechanics
 	public void killPlayer()
 	{
 		StartCoroutine(FadeInGameOver());
@@ -128,7 +116,9 @@ public class Player : MonoBehaviour, IDamageable
 	{
 		StartCoroutine(FasterCoroutine(multiplier, dur));
 	}
+	#endregion
 
+	#region Coroutines
 	IEnumerator FasterCoroutine(float multiplier, int dur)
 	{
 		playerSpeed = playerSpeed * multiplier;
@@ -151,6 +141,18 @@ public class Player : MonoBehaviour, IDamageable
 		gameOverText.alpha = 1f;
 		yield return new WaitForSeconds(1f);
 		SceneManager.LoadSceneAsync("Hub");
+	}
+
+	IEnumerator TeleportToSpawn(float time)
+	{
+		yield return new WaitForSeconds(time);
+		moveSpawnPosition();
+	}
+	#endregion
+
+	void moveSpawnPosition()
+	{
+		transform.position = spawnPoint.position;
 	}
 
 	public int getLevel() { return Level; }

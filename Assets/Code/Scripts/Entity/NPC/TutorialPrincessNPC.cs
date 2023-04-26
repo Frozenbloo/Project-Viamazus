@@ -4,11 +4,27 @@ using UnityEngine;
 
 public class TutorialPrincessNPC : Interactable, IDialogue
 {
-	public string[] dialogue { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-	public string npcName { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+	private string[] pDialogue =
+	{
+		"I'm a princess!"
+	};
+
+	private string pNpcName = "Princess:";
+
+	public string[] dialogue { get => pDialogue; set => pDialogue = value; }
+	public string npcName { get => pNpcName; set => pNpcName = value; }
 
 	public void OnDialogueEnd()
 	{
-		throw new System.NotImplementedException();
+
+	}
+
+	protected override void OnCollide(Collider2D collider)
+	{
+		if (Input.GetButtonDown("Interact"))
+		{
+			FindObjectOfType<DialogueManager>().StartDialogue(this, gameObject);
+		}
+		else base.OnCollide(collider);
 	}
 }

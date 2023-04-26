@@ -33,23 +33,22 @@ public class Chest : Interactable
 
 		BoxCollider2D[] colliders = FindObjectsOfType<BoxCollider2D>();
 
-		for (int i = 0; i < dropAmount; i++)
+		for (int i = 0; i < drops.Count; i++)
 		{
-			Vector2 pos = Random.insideUnitCircle * dropRadius;
+			Vector2 pos = (Random.insideUnitCircle * dropRadius) + (Vector2)gameObject.transform.position;
 
 			bool insideCollider = false;
 			foreach (var collider in colliders)
 			{
-				if (collider.bounds.Contains(transform.position))
+				if (collider.bounds.Contains(transform.position) && !collider.CompareTag("Interactable"))
 				{
 					insideCollider = true;
 					break;
 				}
 			}
-
 			if (!insideCollider)
 			{
-				GameObject item = Instantiate(drops[i], transform.position, Quaternion.identity, gameObject.transform);
+				GameObject item = Instantiate(drops[i], pos, Quaternion.identity);
 			}
 		}
 	}

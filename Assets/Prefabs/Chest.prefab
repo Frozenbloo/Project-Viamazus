@@ -141,6 +141,6 @@ MonoBehaviour:
   chestSpriteRenderer: {fileID: 4361667089380092380}
   openChest: {fileID: -2094136180, guid: 62498f7ad8cc8bc4abd96c7fd848ce67, type: 3}
   dropAmount: 5
-  dropRadius: 0.01
+  dropRadius: 0.4
   healthPot: {fileID: 5480629085720013743, guid: 230053fd62f9f08428584108f19ff027, type: 3}
   speedPot: {fileID: 5480629085720013743, guid: 7bac17200bda2fe4193b6503186a8efc, type: 3}
