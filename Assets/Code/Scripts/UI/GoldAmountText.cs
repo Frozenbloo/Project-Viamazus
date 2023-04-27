@@ -13,7 +13,8 @@ public class GoldAmountText : MonoBehaviour, ISave
 
 	private void Start()
 	{
-		// TODO goldCollectEvent
+		if (GameEvents.instance.onCoinCollect == null) GameEvents.instance.onCoinCollect = new ViamazusIntEvent();
+		GameEvents.instance.onCoinCollect.AddListener(OnGoldCollect);
 	}
 
 	private void Update()
@@ -23,7 +24,7 @@ public class GoldAmountText : MonoBehaviour, ISave
 
 	private void OnDestroy()
 	{
-	
+		GameEvents.instance.onCoinCollect.RemoveListener(OnGoldCollect);
 	}
 
 	private void OnGoldCollect(int amount)

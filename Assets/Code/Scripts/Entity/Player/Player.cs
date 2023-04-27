@@ -45,6 +45,7 @@ public class Player : MonoBehaviour, IDamageable, ISave
 	void Start()
 	{
 		boxCollider2D = GetComponent<BoxCollider2D>();
+		HP = maxHP;
 		if (SceneManager.GetActiveScene().name == "MazeWorld") StartCoroutine(TeleportToSpawn(0.01f));
 		else moveSpawnPosition();
 		if (SceneManager.GetActiveScene().name == "Hub") weapon.SetActive(false);

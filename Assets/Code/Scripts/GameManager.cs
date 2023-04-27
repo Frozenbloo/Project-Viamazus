@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour, ISave
 {
 	//needs to be accessed everywhere
-	[SerializeField] static GameManager instance;
+	[SerializeField] public static GameManager instance { get; private set; }
+	[SerializeField] private Player player;
 	private Image healthBar;
-
+	public int playerLvl;
 
 	private void Awake()
 	{
@@ -20,11 +17,9 @@ public class GameManager : MonoBehaviour
 			return;
 		}
 		instance = this;
-		player.setExp(playerExp);
+		DontDestroyOnLoad(gameObject);
 
 		healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
-
-		DontDestroyOnLoad(gameObject);
 	}
 
 	private void Update()
@@ -32,17 +27,13 @@ public class GameManager : MonoBehaviour
 		healthBar.fillAmount = player.HP / player.maxHP;
 	}
 
+	public void LoadData(GameSave data)
+	{
+		playerLvl = data.playerLvl;
+	}
 
-	#region GamePlay
-	private int playerExp;
-	#endregion
-
-	//Player Related Things that need to be saved
-	public Player player;
-	private int exp, mazesBeat, mazeRuns, weaponUpgrade;
-
-	public int Exp { get => exp; set => exp = value; }
-	public int MazesBeat { get => mazesBeat; set => mazesBeat = value; }
-	public int MazeRuns { get => mazeRuns; set => mazeRuns = value; }
-	public int WeaponUpgrade { get => weaponUpgrade; set => weaponUpgrade = value; }
+	public void SaveData(ref GameSave data)
+	{
+		data.playerLvl = playerLvl;
+	}
 }

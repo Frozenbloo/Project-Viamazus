@@ -13,6 +13,7 @@ public class Chest : Interactable
 	[SerializeField] float dropRadius;
 	[SerializeField] GameObject healthPot;
 	[SerializeField] GameObject speedPot;
+	[SerializeField] int maxCoins = 50;
 	private ViamazusChestDictionary chestDrops = new ViamazusChestDictionary();
 
 	private bool isChestOpen = false;
@@ -23,6 +24,7 @@ public class Chest : Interactable
 		chestDrops.Add(speedPot, 0.2f);
 		isChestOpen = true;
 		chestSpriteRenderer.sprite = openChest;
+		GameEvents.instance.onCoinCollect.Invoke(Utils.rng.Next(maxCoins));
 		SpawnItems();
 	}
 
