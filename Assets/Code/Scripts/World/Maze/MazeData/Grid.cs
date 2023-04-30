@@ -2,12 +2,12 @@ using UnityEngine;
 
 public class Grid
 {
-    private int width, height;
+	private int width, height;
 	private float size;
-    private int[,] gridArr;
-	private bool[,] cellVisited;
+	private readonly int[,] gridArr;
+	private readonly bool[,] cellVisited;
 
-    public Grid(int width, int height, float size)
+	public Grid(int width, int height, float size)
 	{
 		this.width = width;
 		this.height = height;

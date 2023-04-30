@@ -1,19 +1,18 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class MazeRenderer : MonoBehaviour
 {
-    [SerializeField] MazeGenerator mazeGen;
-    [SerializeField] GameObject mazeCell;
-	[SerializeField] float cellSize = 0.64f;
+	[SerializeField] private MazeGenerator mazeGen;
+	[SerializeField] private GameObject mazeCell;
+	[SerializeField] private float cellSize = 0.64f;
 	[Header("Chest")]
-	[SerializeField] GameObject chestObject;
-	[SerializeField] int chestChance;
+	[SerializeField] private GameObject chestObject;
+	[SerializeField] private int chestChance;
 	[Header("Enemy")]
-	[SerializeField] int enemyChance = 20;
+	[SerializeField] private int enemyChance = 20;
 	[Header("Exit")]
-	[SerializeField] GameObject mazeExitObject;
+	[SerializeField] private GameObject mazeExitObject;
 
 	private float exitSpawnChance = 0.0f;
 	private bool exitSpawn = false;
@@ -34,11 +33,11 @@ public class MazeRenderer : MonoBehaviour
 		{
 			for (int y = 0; y < mazeGen.GetMazeSize(); y++)
 			{
-				GameObject cell = Instantiate(mazeCell, new Vector3(Utils.GetClosestNumber((float)x * cellSize, 0.64f), Utils.GetClosestNumber((float)y * cellSize, 0.64f), 0f), Quaternion.identity, transform);
+				GameObject cell = Instantiate(mazeCell, new Vector3(Utils.GetClosestNumber(x * cellSize, 0.64f), Utils.GetClosestNumber(y * cellSize, 0.64f), 0f), Quaternion.identity, transform);
 				AlignItemToGrid(cell, cellSize);
 				if (rnd.Next(100) < chestChance)
 				{
-					Vector3 chestPos = new Vector3((float)x * cellSize, (float)y * cellSize + 0.5f, 0f);
+					Vector3 chestPos = new Vector3(x * cellSize, y * cellSize + 0.5f, 0f);
 
 					Collider2D[] chestColliders = Physics2D.OverlapBoxAll(chestPos, new Vector2(0.16f, 0.16f), 0f, 7);
 					if (chestColliders.Length == 0 && chestPos.y <= mazeGen.GetMazeSize() * 0.6f)
@@ -49,7 +48,7 @@ public class MazeRenderer : MonoBehaviour
 
 				if (rnd.Next(100) < enemyChance)
 				{
-					Vector3 enemyPos = new Vector3((float)x * cellSize, (float)y * cellSize + 0.5f, 0f);
+					Vector3 enemyPos = new Vector3(x * cellSize, y * cellSize + 0.5f, 0f);
 					SpawnEnemy(enemyPos);
 				}
 
@@ -57,7 +56,7 @@ public class MazeRenderer : MonoBehaviour
 				{
 					while (!exitSpawn)
 					{
-						Vector3 exitPos = new Vector3((float)x * cellSize, (float)y * cellSize + 0.5f, 0f);
+						Vector3 exitPos = new Vector3(x * cellSize, y * cellSize + 0.5f, 0f);
 
 						if (exitPos.y <= mazeGen.GetMazeSize() * 0.6f)
 						{
@@ -66,7 +65,7 @@ public class MazeRenderer : MonoBehaviour
 							break;
 						}
 
-						exitPos = new Vector3((float)x * cellSize, (float)y * cellSize - 0.2f, 0f);
+						exitPos = new Vector3(x * cellSize, y * cellSize - 0.2f, 0f);
 					}
 				}
 

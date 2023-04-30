@@ -4,18 +4,18 @@ using UnityEngine.UI;
 
 public class SceneFader : MonoBehaviour
 {
-	[SerializeField] float fadeDuration = 1f;
+	[SerializeField] private float fadeDuration = 1f;
 
 	private Image fadeImage;
 
-	void Start()
+	private void Start()
 	{
 		fadeImage = GetComponentInChildren<Image>();
 		fadeImage.gameObject.SetActive(true);
 		StartCoroutine(FadeIn());
 	}
 
-	IEnumerator FadeIn()
+	private IEnumerator FadeIn()
 	{
 		fadeImage.gameObject.SetActive(true);
 

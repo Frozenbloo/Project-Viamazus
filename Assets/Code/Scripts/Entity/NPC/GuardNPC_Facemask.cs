@@ -18,7 +18,7 @@ public class GuardNPC_Facemask : Interactable, IDialogue
 	{
 		if (Input.GetButtonDown("Interact"))
 		{
-			FindObjectOfType<DialogueManager>().StartDialogue(this, this.gameObject);
+			FindObjectOfType<DialogueManager>().StartDialogue(this, gameObject);
 		}
 		else base.OnCollide(collider);
 	}

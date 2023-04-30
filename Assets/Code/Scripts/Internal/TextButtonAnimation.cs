@@ -3,12 +3,12 @@ using UnityEngine.UI;
 
 public class TextButtonAnimation : MonoBehaviour
 {
-	[SerializeField] Image outline;
-	[SerializeField] Color hoverColor;
+	[SerializeField] private Image outline;
+	[SerializeField] private Color hoverColor;
 
 	private Color defaultColor;
 
-	void Start()
+	private void Start()
 	{
 		defaultColor = outline.color;
 	}

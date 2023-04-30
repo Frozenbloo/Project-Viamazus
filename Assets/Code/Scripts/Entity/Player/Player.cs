@@ -7,22 +7,22 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour, IDamageable, ISave
 {
 	[Header("Movement")]
-	[SerializeField] float playerSpeed = 1f;
-	[SerializeField] Transform spawnPoint;
-	[SerializeField] bool canMove = true;
+	[SerializeField] private float playerSpeed = 1f;
+	[SerializeField] private Transform spawnPoint;
+	[SerializeField] private bool canMove = true;
 	private BoxCollider2D boxCollider2D;
 	private Vector3 movementVector;
 	private RaycastHit2D hitRaycast;
-	Vector3 mousePos;
+	private Vector3 mousePos;
 
 	[Header("Stats")]
-	[SerializeField] float HP, maxHP;
-	[SerializeField] GameObject weapon;
-	[SerializeField] float weaponDmg = 1f;
+	[SerializeField] private float HP, maxHP;
+	[SerializeField] private GameObject weapon;
+	[SerializeField] private float weaponDmg = 1f;
 	private WeaponHolder weaponHolder;
 
 	[Header("Gameplay")]
-	[SerializeField] int gold;
+	[SerializeField] private int gold;
 	private int Exp, Level;
 
 	#region SaveStuff
@@ -45,7 +45,7 @@ public class Player : MonoBehaviour, IDamageable, ISave
 
 	#region UnityMessages
 
-	void Start()
+	private void Start()
 	{
 		boxCollider2D = GetComponent<BoxCollider2D>();
 		HP = maxHP;
@@ -58,12 +58,12 @@ public class Player : MonoBehaviour, IDamageable, ISave
 		GameEvents.instance.onMazeBeat.AddListener(OnMazeBeat);
 	}
 
-	void Awake()
+	private void Awake()
 	{
 		weaponHolder = GetComponentInChildren<WeaponHolder>();
 	}
 
-	void FixedUpdate()
+	private void FixedUpdate()
 	{
 		if (canMove)
 		{
@@ -110,7 +110,7 @@ public class Player : MonoBehaviour, IDamageable, ISave
 		weaponHolder.pointerPos = mousePos;
 	}
 
-	void Update()
+	private void Update()
 	{
 		#region Data
 		mousePos = Input.mousePosition;
@@ -151,14 +151,14 @@ public class Player : MonoBehaviour, IDamageable, ISave
 	#endregion
 
 	#region Coroutines
-	IEnumerator FasterCoroutine(float multiplier, int dur)
+	private IEnumerator FasterCoroutine(float multiplier, int dur)
 	{
 		playerSpeed = playerSpeed * multiplier;
-		yield return new WaitForSeconds((float)dur);
+		yield return new WaitForSeconds(dur);
 		playerSpeed = playerSpeed / multiplier;
 	}
 
-	IEnumerator FadeInGameOver()
+	private IEnumerator FadeInGameOver()
 	{
 		TextMeshProUGUI gameOverText = GameObject.Find("GameOver").GetComponent<TextMeshProUGUI>();
 		gameOverText.alpha = 0f;
@@ -175,14 +175,14 @@ public class Player : MonoBehaviour, IDamageable, ISave
 		SceneManager.LoadSceneAsync("Hub");
 	}
 
-	IEnumerator TeleportToSpawn(float time)
+	private IEnumerator TeleportToSpawn(float time)
 	{
 		yield return new WaitForSeconds(time);
 		moveSpawnPosition();
 	}
 	#endregion
 
-	void moveSpawnPosition()
+	private void moveSpawnPosition()
 	{
 		transform.position = spawnPoint.position;
 	}

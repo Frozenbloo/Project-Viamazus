@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-	[SerializeField] Transform player;
-    private float xBound = 0.45f, yBound = 0.15f;
+	[SerializeField] private Transform player;
+	private readonly float xBound = 0.45f, yBound = 0.15f;
 
-	void LateUpdate()
+	private void LateUpdate()
 	{
 		Vector3 camVector = Vector3.zero;
 

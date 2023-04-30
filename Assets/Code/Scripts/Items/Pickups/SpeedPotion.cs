@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SpeedPotion : Interactable
 {
-	[SerializeField] float speedMultiplier;
-	[SerializeField] int duration;
+	[SerializeField] private float speedMultiplier;
+	[SerializeField] private int duration;
 
 	private void speedUp(Player player)
 	{

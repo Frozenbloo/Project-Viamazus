@@ -34,7 +34,7 @@ public static class Utils
 		float firstClosest = y * div;
 		float secondClosest = (x * y) > 0 ? (y * (div + 1)) : (y * (div - 1));
 
-		if (Mathf.Abs(x - firstClosest) < Mathf.Abs(x - secondClosest)) 
+		if (Mathf.Abs(x - firstClosest) < Mathf.Abs(x - secondClosest))
 		{
 			return firstClosest;
 		}

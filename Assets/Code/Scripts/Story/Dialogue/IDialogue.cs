@@ -1,7 +1,7 @@
 public interface IDialogue
 {
-    public string[] dialogue { get; set; }
-    public string npcName { get; set; }
+	public string[] dialogue { get; set; }
+	public string npcName { get; set; }
 
-    void OnDialogueEnd();
+	void OnDialogueEnd();
 }

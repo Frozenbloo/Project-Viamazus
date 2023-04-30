@@ -19,11 +19,11 @@ public class GoldAmountText : MonoBehaviour, ISave
 	}
 
 	private void Update()
-    {
+	{
 		if (goldText.text == "%GOLD%") StartCoroutine(getGameManager());
 		goldAmount = gameManager.GetPlayerGold();
-        goldText.text = goldAmount.ToString();
-    }
+		goldText.text = goldAmount.ToString();
+	}
 
 	private void OnDestroy()
 	{
@@ -44,7 +44,7 @@ public class GoldAmountText : MonoBehaviour, ISave
 	{
 	}
 
-	IEnumerator getGameManager()
+	private IEnumerator getGameManager()
 	{
 		yield return new WaitForSeconds(1);
 		gameManager = GameManager.instance;

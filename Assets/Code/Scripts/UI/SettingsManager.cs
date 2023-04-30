@@ -6,30 +6,30 @@ using UnityEngine.UI;
 
 public class SettingsManager : MonoBehaviour, ISave
 {
-	[SerializeField] float fadeDuration;
+	[SerializeField] private float fadeDuration;
 
 	[Header("Master Volume")]
-	[SerializeField] AudioMixer masterAudioMixer;
-	[SerializeField] TextMeshProUGUI masterSliderValue;
-	[SerializeField] Slider masterSlider;
+	[SerializeField] private AudioMixer masterAudioMixer;
+	[SerializeField] private TextMeshProUGUI masterSliderValue;
+	[SerializeField] private Slider masterSlider;
 	private float savedMasterValue;
 
 	[Header("Music Volume")]
-	[SerializeField] AudioMixer musicAudioMixer;
-	[SerializeField] TextMeshProUGUI musicSliderValue;
-	[SerializeField] Slider musicSlider;
+	[SerializeField] private AudioMixer musicAudioMixer;
+	[SerializeField] private TextMeshProUGUI musicSliderValue;
+	[SerializeField] private Slider musicSlider;
 	private float savedMusicValue;
 
 	[Header("SFX Volume")]
-	[SerializeField] AudioMixer sfxAudioMixer;
-	[SerializeField] TextMeshProUGUI sfxSliderValue;
-	[SerializeField] Slider sfxSlider;
+	[SerializeField] private AudioMixer sfxAudioMixer;
+	[SerializeField] private TextMeshProUGUI sfxSliderValue;
+	[SerializeField] private Slider sfxSlider;
 	private float savedSFXValue;
 
 	[Header("UI Volume")]
-	[SerializeField] AudioMixer uiAudioMixer;
-	[SerializeField] TextMeshProUGUI uiSliderValue;
-	[SerializeField] Slider uiSlider;
+	[SerializeField] private AudioMixer uiAudioMixer;
+	[SerializeField] private TextMeshProUGUI uiSliderValue;
+	[SerializeField] private Slider uiSlider;
 	private float savedUIValue;
 
 	private bool settingsOn = false;
@@ -47,10 +47,10 @@ public class SettingsManager : MonoBehaviour, ISave
 		}
 	}
 
-	IEnumerator FadeInSettings()
+	private IEnumerator FadeInSettings()
 	{
 		settingsOn = true;
-		CanvasGroup settingsPanelCanvasGroup = this.GetComponent<CanvasGroup>();
+		CanvasGroup settingsPanelCanvasGroup = GetComponent<CanvasGroup>();
 		settingsPanelCanvasGroup.alpha = 0f;
 
 		float t = 0f;
@@ -63,10 +63,10 @@ public class SettingsManager : MonoBehaviour, ISave
 		settingsPanelCanvasGroup.alpha = 1f;
 	}
 
-	IEnumerator FadeOutSettings()
+	private IEnumerator FadeOutSettings()
 	{
 		settingsOn = false;
-		CanvasGroup settingsPanelCanvasGroup = this.GetComponent<CanvasGroup>();
+		CanvasGroup settingsPanelCanvasGroup = GetComponent<CanvasGroup>();
 		settingsPanelCanvasGroup.alpha = 1f;
 
 		float t = 1f;

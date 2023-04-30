@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class WeaponHolder : MonoBehaviour
 {
-	[SerializeField] float swingTime = 0.2f;
-	[SerializeField] float swingAngle = 10f;
-    [SerializeField] public Vector2 pointerPos { get; set; }
+	[SerializeField] private float swingTime = 0.2f;
+	[SerializeField] private float swingAngle = 10f;
+	[SerializeField] public Vector2 pointerPos { get; set; }
 	private GameObject weapon;
 	private float oldAngle;
 
@@ -25,7 +25,8 @@ public class WeaponHolder : MonoBehaviour
 		{
 			scale.y = -1;
 		}
-		else if(direction.x > 0) {
+		else if (direction.x > 0)
+		{
 			scale.y = 1;
 		}
 		transform.localScale = scale;

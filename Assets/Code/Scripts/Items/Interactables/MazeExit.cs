@@ -1,12 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MazeExit : Interactable, IConfirmation
 {
-	[SerializeField] SpriteRenderer exitSpriteRenderer;
-	[SerializeField] Sprite openDoor;
+	[SerializeField] private SpriteRenderer exitSpriteRenderer;
+	[SerializeField] private Sprite openDoor;
 
 	private ConfirmationManager confirmationManager;
 
@@ -39,7 +37,7 @@ public class MazeExit : Interactable, IConfirmation
 	public Action[] ButtonActions { get; set; }
 
 
-	public void OnConfirmationEnd() {}
+	public void OnConfirmationEnd() { }
 
 	public void ShowConfirmation()
 	{

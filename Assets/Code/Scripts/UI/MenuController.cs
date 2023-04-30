@@ -4,29 +4,29 @@ using UnityEngine;
 
 public class MenuController : MonoBehaviour
 {
-	[SerializeField] GameObject secondPanel;
-	[SerializeField] TextMeshProUGUI pressAnyButtonText;
-	[SerializeField] float fadeDuration = 0.5f;
-	[SerializeField] float textFadeDuration = 1f;
-	[SerializeField] float idleTimeBeforeFlash = 3f;
-	[SerializeField] float textFlashDuration = 0.5f;
-	[SerializeField] float minAlpha = 0.2f;
-	[SerializeField] float maxAlpha = 0.8f;
-	[SerializeField] TextMeshProUGUI playButtonText;
+	[SerializeField] private GameObject secondPanel;
+	[SerializeField] private TextMeshProUGUI pressAnyButtonText;
+	[SerializeField] private float fadeDuration = 0.5f;
+	[SerializeField] private float textFadeDuration = 1f;
+	[SerializeField] private float idleTimeBeforeFlash = 3f;
+	[SerializeField] private float textFlashDuration = 0.5f;
+	[SerializeField] private float minAlpha = 0.2f;
+	[SerializeField] private float maxAlpha = 0.8f;
+	[SerializeField] private TextMeshProUGUI playButtonText;
 
 	private CanvasGroup firstPanelCanvasGroup;
 	private bool isFading = false;
-	private bool isIdle = true;
-	private bool isFlashing = false;
+	private readonly bool isIdle = true;
+	private readonly bool isFlashing = false;
 
-	void Start()
+	private void Start()
 	{
 		firstPanelCanvasGroup = GetComponent<CanvasGroup>();
 		secondPanel.SetActive(false);
 		StartCoroutine(FadeInPressAnyButtonText());
 	}
 
-	void Update()
+	private void Update()
 	{
 		if (Input.anyKeyDown && !isFading)
 		{
@@ -45,7 +45,7 @@ public class MenuController : MonoBehaviour
 		}
 	}
 
-	IEnumerator FadeInPressAnyButtonText()
+	private IEnumerator FadeInPressAnyButtonText()
 	{
 		pressAnyButtonText.color = new Color(pressAnyButtonText.color.r, pressAnyButtonText.color.g, pressAnyButtonText.color.b, 0f);
 
@@ -70,7 +70,7 @@ public class MenuController : MonoBehaviour
 		}
 	}
 
-	IEnumerator FadeOutPressAnyButtonText()
+	private IEnumerator FadeOutPressAnyButtonText()
 	{
 		isFading = true;
 
@@ -86,7 +86,7 @@ public class MenuController : MonoBehaviour
 		isFading = false;
 	}
 
-	IEnumerator FadeOutFirstPanel()
+	private IEnumerator FadeOutFirstPanel()
 	{
 		isFading = true;
 
@@ -106,7 +106,7 @@ public class MenuController : MonoBehaviour
 		StartCoroutine(FadeInSecondPanel());
 	}
 
-	IEnumerator FadeInSecondPanel()
+	private IEnumerator FadeInSecondPanel()
 	{
 		CanvasGroup secondPanelCanvasGroup = secondPanel.GetComponent<CanvasGroup>();
 		secondPanelCanvasGroup.alpha = 0f;

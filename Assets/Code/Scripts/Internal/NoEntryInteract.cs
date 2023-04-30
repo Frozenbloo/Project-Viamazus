@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NoEntryInteract : Interactable, IDialogue
@@ -17,13 +15,13 @@ public class NoEntryInteract : Interactable, IDialogue
 	public string npcName { get => pNpcName; set => pNpcName = value; }
 	public string[] dialogue { get => pDialogue; set => pDialogue = value; }
 
-	public void OnDialogueEnd() {}
+	public void OnDialogueEnd() { }
 
 	protected override void OnCollide(Collider2D collider)
 	{
 		if (Input.GetButtonDown("Interact"))
 		{
-			FindObjectOfType<DialogueManager>().StartDialogue(this, this.gameObject);
+			FindObjectOfType<DialogueManager>().StartDialogue(this, gameObject);
 		}
 		else base.OnCollide(collider);
 	}

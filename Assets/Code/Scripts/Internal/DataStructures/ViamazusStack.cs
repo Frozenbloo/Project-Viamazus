@@ -1,17 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
 public class ViamazusStack<T>
 {
-    private List<T> stack;
+	private readonly List<T> stack;
 
 	/// <summary>
 	/// Generic class, which means that it can be used with any type of data
 	/// </summary>
-	public ViamazusStack() 
+	public ViamazusStack()
 	{
-		this.stack = new List<T>();
+		stack = new List<T>();
 	}
 
 	public void push(T item) { stack.Add(item); }
@@ -23,8 +21,8 @@ public class ViamazusStack<T>
 	//Returns true if stack.count == 0, false if not
 	public bool isEmpty() { return stack.Count == 0; }
 
-	public T pop() 
-	{ 
+	public T pop()
+	{
 		int lastItem = stack.Count - 1;
 		T item = stack[lastItem];
 		stack.RemoveAt(lastItem);

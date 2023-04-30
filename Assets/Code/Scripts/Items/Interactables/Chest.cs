@@ -1,20 +1,17 @@
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class Chest : Interactable
 {
-	[SerializeField] SpriteRenderer chestSpriteRenderer;
-	[SerializeField] Sprite openChest;
+	[SerializeField] private SpriteRenderer chestSpriteRenderer;
+	[SerializeField] private Sprite openChest;
 	[Header("Drops")]
-	[SerializeField] int dropAmount;
-	[SerializeField] float dropRadius;
-	[SerializeField] GameObject healthPot;
-	[SerializeField] GameObject speedPot;
-	[SerializeField] int maxCoins = 50;
-	private ViamazusChanceDictionary chestDrops = new ViamazusChanceDictionary();
+	[SerializeField] private int dropAmount;
+	[SerializeField] private float dropRadius;
+	[SerializeField] private GameObject healthPot;
+	[SerializeField] private GameObject speedPot;
+	[SerializeField] private int maxCoins = 50;
+	private readonly ViamazusChanceDictionary chestDrops = new ViamazusChanceDictionary();
 
 	private bool isChestOpen = false;
 

@@ -21,7 +21,7 @@ public class WizardNPC : Interactable, IDialogue, IConfirmation
 	public string[] ButtonTexts { get; set; }
 	public Action[] ButtonActions { get; set; }
 
-	public void OnConfirmationEnd() {}
+	public void OnConfirmationEnd() { }
 
 	public void OnDialogueEnd() { ShowConfirmation(); }
 
@@ -34,7 +34,8 @@ public class WizardNPC : Interactable, IDialogue, IConfirmation
 		confirmationManager.StartConfirmation(this);
 	}
 
-	protected override void OnCollide(Collider2D collider)	{
+	protected override void OnCollide(Collider2D collider)
+	{
 		if (Input.GetButtonDown("Interact"))
 		{
 			FindObjectOfType<DialogueManager>().StartDialogue(this, gameObject);

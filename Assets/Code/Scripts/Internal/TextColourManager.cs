@@ -5,17 +5,17 @@ using UnityEngine.EventSystems;
 
 public class TextColourManager : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-	[SerializeField] TextMeshProUGUI buttonText;
-	[SerializeField] Color hoverTextColor;
-	[SerializeField] float fadeDuration = 1f;
+	[SerializeField] private TextMeshProUGUI buttonText;
+	[SerializeField] private Color hoverTextColor;
+	[SerializeField] private float fadeDuration = 1f;
 
 	private Color defaultTextColor;
 	private Coroutine fadeCoroutine;
 
-	void Start()
-    {
-        defaultTextColor = buttonText.color;
-    }
+	private void Start()
+	{
+		defaultTextColor = buttonText.color;
+	}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
@@ -35,7 +35,7 @@ public class TextColourManager : MonoBehaviour, IPointerEnterHandler, IPointerEx
 		fadeCoroutine = StartCoroutine(FadeToColor(defaultTextColor));
 	}
 
-	IEnumerator FadeToColor(Color targetColor)
+	private IEnumerator FadeToColor(Color targetColor)
 	{
 		float startTime = Time.time;
 		Color initialColor = buttonText.color;

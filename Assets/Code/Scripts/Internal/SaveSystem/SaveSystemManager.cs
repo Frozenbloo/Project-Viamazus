@@ -1,20 +1,20 @@
 using System.Collections.Generic;
-using UnityEngine;
 using System.Linq;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class SaveSystemManager : MonoBehaviour
 {
 	[Header("Local File Config")]
-	[SerializeField] string fileName;
-	[SerializeField] bool Encrypt;
+	[SerializeField] private string fileName;
+	[SerializeField] private bool Encrypt;
 
 	[Header("Debugging Tools")]
-	[SerializeField] bool DebugSavingByInitIfNull = false;
+	[SerializeField] private bool DebugSavingByInitIfNull = false;
 
 	private GameSave gameSave;
 
-    public static SaveSystemManager instance { get; private set; }
+	public static SaveSystemManager instance { get; private set; }
 	private List<ISave> saveObjects;
 	private LocalFileSaveHandler localFileSaveHandler;
 
@@ -93,7 +93,7 @@ public class SaveSystemManager : MonoBehaviour
 		{
 			saveDataObject.SaveData(ref gameSave);
 		}
-		
+
 		localFileSaveHandler.Save(gameSave);
 	}
 

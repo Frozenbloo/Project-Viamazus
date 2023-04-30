@@ -1,9 +1,8 @@
-using System;
 using UnityEngine;
 
 public class GameEvents : MonoBehaviour
 {
-    [SerializeField] public static GameEvents instance { get; private set; }
+	[SerializeField] public static GameEvents instance { get; private set; }
 
 	private void Awake()
 	{

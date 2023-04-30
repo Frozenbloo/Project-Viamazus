@@ -3,68 +3,68 @@ using UnityEngine;
 
 public class Entity : MonoBehaviour, IDamageable
 {
-    [Header("Pathfinding")]
-    [SerializeField] float pathfindingRadius;
-    [SerializeField] float moveSpeed;
+	[Header("Pathfinding")]
+	[SerializeField] private float pathfindingRadius;
+	[SerializeField] private float moveSpeed;
 	private GameObject object2Pathfind2;
 
 	[Header("Stats")]
-    [SerializeField] float entityMaxHealth;
-	[SerializeField] float damage;
+	[SerializeField] private float entityMaxHealth;
+	[SerializeField] private float damage;
 
-    private float entityHealth;
+	private float entityHealth;
 
-    [Header("Pathfinding 'Radar'")]
-	[SerializeField] int numOfRays = 30;
-	[SerializeField] ContactFilter2D contactFilter;
+	[Header("Pathfinding 'Radar'")]
+	[SerializeField] private int numOfRays = 30;
+	[SerializeField] private ContactFilter2D contactFilter;
 
 	private Vector3 movementVector;
 	private BoxCollider2D boxCollider2D;
 	private RaycastHit2D hitRaycast;
 	private Vector3 spawnPos;
-	private Collider2D[] hits = new Collider2D[10];
-	
+	private readonly Collider2D[] hits = new Collider2D[10];
+
 
 	// Start is called before the first frame update
-	void Start()
-    {
+	private void Start()
+	{
 		FullyHeal();
 		spawnPos = transform.position;
-    }
+	}
 
-	void Awake()
+	private void Awake()
 	{
 		object2Pathfind2 = GameObject.Find("Player");
 		boxCollider2D = GetComponent<BoxCollider2D>();
 	}
 
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        Pathfind();
+	// Update is called once per frame
+	private void FixedUpdate()
+	{
+		Pathfind();
 		CheckCollision();
-    }
+	}
 
 	#region Health
 	public void KillEntity()
-    {
-        Destroy(gameObject);
-    }
+	{
+		Destroy(gameObject);
+	}
 
-    // Could be used for boss ability later
-    public void FullyHeal()
-    {
+	// Could be used for boss ability later
+	public void FullyHeal()
+	{
 		entityHealth = entityMaxHealth;
 	}
 
 	public void Damage(float dmgAmount)
 	{
 		float tempHealth = entityHealth - dmgAmount;
-        if (tempHealth <= 0) KillEntity();
-        else if (tempHealth > entityMaxHealth) 
-        {
-            FullyHeal();
-        }
+		if (tempHealth <= 0) KillEntity();
+		else if (tempHealth > entityMaxHealth)
+		{
+			FullyHeal();
+		}
 		else
 		{
 			entityHealth = tempHealth;
@@ -74,17 +74,17 @@ public class Entity : MonoBehaviour, IDamageable
 
 	#region Pathfinding
 	public virtual void Pathfind()
-    {
-        PingRadar();
-    }
-
-    public virtual void WanderAround()
-    {
-		
+	{
+		PingRadar();
 	}
 
-    public virtual void Go2Player()
-    {
+	public virtual void WanderAround()
+	{
+
+	}
+
+	public virtual void Go2Player()
+	{
 		float xMovement = object2Pathfind2.transform.position.x - transform.position.x;
 
 		// Set the movement vector and Normalise it
@@ -105,35 +105,35 @@ public class Entity : MonoBehaviour, IDamageable
 			transform.Translate(0, movementVector.y * moveSpeed * Time.fixedDeltaTime, 0);
 		}
 
-		hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(movementVector.x, 0), Mathf.Abs(movementVector.x * Time.deltaTime  * 0.5f), LayerMask.GetMask("Entity", "Blocking"));
+		hitRaycast = Physics2D.BoxCast(transform.position, boxCollider2D.size, 0, new Vector2(movementVector.x, 0), Mathf.Abs(movementVector.x * Time.deltaTime * 0.5f), LayerMask.GetMask("Entity", "Blocking"));
 		if (hitRaycast.collider == null)
 		{
 			transform.Translate(movementVector.x * moveSpeed * Time.fixedDeltaTime, 0, 0);
 		}
 	}
 
-    private void PingRadar()
-    {
+	private void PingRadar()
+	{
 		movementVector = Vector3.zero;
-        float angleInRads = 2 * Mathf.PI / numOfRays; //Calculates the angle between each ray
+		float angleInRads = 2 * Mathf.PI / numOfRays; //Calculates the angle between each ray
 		for (int i = 0; i < numOfRays; i++)
-        {
-            float x = Mathf.Sin(angleInRads * i);
-            float y = Mathf.Cos(angleInRads * i);
+		{
+			float x = Mathf.Sin(angleInRads * i);
+			float y = Mathf.Cos(angleInRads * i);
 
-            Vector2 direction = new Vector2(x, y);
-            RaycastHit2D radarHitInfo = Physics2D.Raycast(transform.position, direction);
+			Vector2 direction = new Vector2(x, y);
+			RaycastHit2D radarHitInfo = Physics2D.Raycast(transform.position, direction);
 
-            if (radarHitInfo.collider != null && !radarHitInfo.collider.CompareTag("Player") && !radarHitInfo.collider.CompareTag("Weapon"))
-            {
+			if (radarHitInfo.collider != null && !radarHitInfo.collider.CompareTag("Player") && !radarHitInfo.collider.CompareTag("Weapon"))
+			{
 				WanderAround();
 			}
-            else
-            {
+			else
+			{
 				Go2Player();
 			}
-        }
-    }
+		}
+	}
 	#endregion
 
 	#region Damage
@@ -163,7 +163,7 @@ public class Entity : MonoBehaviour, IDamageable
 			DamagePlayer();
 			Destroy(gameObject);
 		}
-		
+
 	}
 
 	public virtual void DamagePlayer()
@@ -172,7 +172,7 @@ public class Entity : MonoBehaviour, IDamageable
 	}
 	#endregion
 
-	IEnumerator DPS(float dmg)
+	private IEnumerator DPS(float dmg)
 	{
 		yield return new WaitForSeconds(1);
 		Damage(dmg);
