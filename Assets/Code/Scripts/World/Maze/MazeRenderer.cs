@@ -66,7 +66,7 @@ public class MazeRenderer : MonoBehaviour
 							break;
 						}
 
-						exitPos = new Vector3((float)x * cellSize, (float)y * cellSize - 0.64f, 0f);
+						exitPos = new Vector3((float)x * cellSize, (float)y * cellSize - 0.2f, 0f);
 					}
 				}
 

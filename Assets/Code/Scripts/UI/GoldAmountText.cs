@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -10,10 +11,7 @@ public class GoldAmountText : MonoBehaviour, ISave
 	private void Awake()
 	{
 		goldText = GetComponent<TextMeshProUGUI>();
-	}
-
-	private void Start()
-	{
+		StartCoroutine(getGameManager());
 		gameManager = GameManager.instance;
 		goldAmount = gameManager.GetPlayerGold();
 		if (GameEvents.instance.onCoinCollect == null) GameEvents.instance.onCoinCollect = new ViamazusIntEvent();
@@ -22,6 +20,7 @@ public class GoldAmountText : MonoBehaviour, ISave
 
 	private void Update()
     {
+		if (goldText.text == "%GOLD%") StartCoroutine(getGameManager());
 		goldAmount = gameManager.GetPlayerGold();
         goldText.text = goldAmount.ToString();
     }
@@ -43,5 +42,11 @@ public class GoldAmountText : MonoBehaviour, ISave
 
 	public void SaveData(ref GameSave data)
 	{
+	}
+
+	IEnumerator getGameManager()
+	{
+		yield return new WaitForSeconds(1);
+		gameManager = GameManager.instance;
 	}
 }

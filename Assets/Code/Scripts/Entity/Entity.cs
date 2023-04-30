@@ -160,8 +160,8 @@ public class Entity : MonoBehaviour, IDamageable
 		}
 		if (collider.CompareTag("Player"))
 		{
-			//DamagePlayer();
-			//Destroy(gameObject);
+			DamagePlayer();
+			Destroy(gameObject);
 		}
 		
 	}

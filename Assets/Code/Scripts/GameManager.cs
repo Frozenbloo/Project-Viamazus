@@ -15,13 +15,19 @@ public class GameManager : MonoBehaviour
 			Destroy(gameObject);
 			return;
 		}
+		player = GameObject.Find("Player").GetComponent<Player>();
 		instance = this;
 		DontDestroyOnLoad(gameObject);
 	}
 
+	private void Update()
+	{
+		player = GameObject.Find("Player").GetComponent<Player>();
+	}
+
 	private void Start()
 	{
-		
+		player = GameObject.Find("Player").GetComponent<Player>();
 	}
 
 	public int GetPlayerLevel()
