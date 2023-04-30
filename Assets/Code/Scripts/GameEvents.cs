@@ -17,8 +17,8 @@ public class GameEvents : MonoBehaviour
 	}
 
 	public ViamazusIntEvent onCoinCollect;
-	public void CoinCollectTriggered()
-	{
 
-	}
+	public ViamazusIntEvent onMazeBeat;
+
+	public Viamazus2FloatEvent onPlayerHeathChange;
 }

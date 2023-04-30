@@ -6,8 +6,8 @@ using UnityEngine;
 [Serializable]
 public class ViamazusSerializableDictionary<TKey, TValue> : Dictionary<TKey, TValue>, ISerializationCallbackReceiver
 {
-    [SerializeField] List<TKey> keys = new List<TKey>();
-    [SerializeField] List<TValue> values = new List<TValue>();
+    [HideInInspector][SerializeField] List<TKey> keys = new List<TKey>();
+    [HideInInspector][SerializeField] List<TValue> values = new List<TValue>();
 
     public void OnBeforeSerialize()
     {
@@ -33,8 +33,11 @@ public class ViamazusSerializableDictionary<TKey, TValue> : Dictionary<TKey, TVa
     {
         this.Clear();
 
-        if (keys.Count != values.Count) throw new System.Exception(string.Format("These data types are not serializable! There are {0} keys and {1} values"));
-
+        if (keys.Count != values.Count)
+        {
+            throw new System.Exception(string.Format("These data types are not serializable! There are {0} keys and {1} values", keys.Count, values.Count));
+        }
+        
         for (int i = 0; i < keys.Count; i++) this.Add(keys[i], values[i]);
     }
 }

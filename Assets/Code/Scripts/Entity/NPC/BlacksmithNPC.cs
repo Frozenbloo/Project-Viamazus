@@ -1,17 +1,17 @@
-using System;
 using UnityEngine;
+using System;
 
-public class WizardNPC : Interactable, IDialogue, IConfirmation
+public class BlacksmithNPC : Interactable, IDialogue, IConfirmation
 {
 	private string[] pDialogue =
 	{
-		"You’re going in there?",
-		"…You look pretty weak, are you sure you’ll be okay?",
-		"I can give you some potions to improve your health if you need them.",
-		"For money of course."
+		"Wow, that sword is terrible.",
+		"Where did you even get that?",
+		"What do you mean it was free?",
+		"Look, I can sharpen that for you, but it won’t be free."
 	};
 
-	private string pNpcName = "Wizard:";
+	private string pNpcName = "Blacksmith:";
 	private ConfirmationManager confirmationManager;
 
 	public string npcName { get => pNpcName; set => pNpcName = value; }
@@ -21,20 +21,21 @@ public class WizardNPC : Interactable, IDialogue, IConfirmation
 	public string[] ButtonTexts { get; set; }
 	public Action[] ButtonActions { get; set; }
 
-	public void OnConfirmationEnd() {}
+	public void OnConfirmationEnd() { }
 
 	public void OnDialogueEnd() { ShowConfirmation(); }
 
 	public void ShowConfirmation()
 	{
-		Message = "Buy Health Upgrade? " + GameManager.instance.GetPlayerMaxHealth() + " -> " + (GameManager.instance.GetPlayerMaxHealth() + 1);
+		Message = "Buy Damage Upgrade? " + GameManager.instance.GetWeaponDmg() + " -> " + (GameManager.instance.GetWeaponDmg() + 1);
 		ButtonTexts = new string[] { "-100 gold", "No" };
 		ButtonActions = new Action[] { () => { BuyItem(100); }, () => { } };
 
 		confirmationManager.StartConfirmation(this);
 	}
 
-	protected override void OnCollide(Collider2D collider)	{
+	protected override void OnCollide(Collider2D collider)
+	{
 		if (Input.GetButtonDown("Interact"))
 		{
 			FindObjectOfType<DialogueManager>().StartDialogue(this, gameObject);
@@ -53,7 +54,7 @@ public class WizardNPC : Interactable, IDialogue, IConfirmation
 		if (GameManager.instance.GetPlayerGold() >= cost)
 		{
 			GameManager.instance.UpdatePlayerGold(-cost);
-			GameManager.instance.UpgradePlayerMaxHealth();
+			GameManager.instance.UpgradeWeaponDmg();
 		}
 	}
 }

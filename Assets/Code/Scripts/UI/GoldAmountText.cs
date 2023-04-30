@@ -5,6 +5,7 @@ public class GoldAmountText : MonoBehaviour, ISave
 {
 	private int goldAmount;
 	private TextMeshProUGUI goldText;
+	private GameManager gameManager;
 
 	private void Awake()
 	{
@@ -13,12 +14,15 @@ public class GoldAmountText : MonoBehaviour, ISave
 
 	private void Start()
 	{
+		gameManager = GameManager.instance;
+		goldAmount = gameManager.GetPlayerGold();
 		if (GameEvents.instance.onCoinCollect == null) GameEvents.instance.onCoinCollect = new ViamazusIntEvent();
 		GameEvents.instance.onCoinCollect.AddListener(OnGoldCollect);
 	}
 
 	private void Update()
     {
+		goldAmount = gameManager.GetPlayerGold();
         goldText.text = goldAmount.ToString();
     }
 
@@ -29,16 +33,15 @@ public class GoldAmountText : MonoBehaviour, ISave
 
 	private void OnGoldCollect(int amount)
 	{
-		goldAmount += amount;
+		gameManager.UpdatePlayerGold(amount);
 	}
 
 	public void LoadData(GameSave data)
 	{
-		this.goldAmount = data.goldCount;
+		goldAmount = data.goldCount;
 	}
 
 	public void SaveData(ref GameSave data)
 	{
-		data.goldCount = this.goldAmount;
 	}
 }

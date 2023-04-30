@@ -378,6 +378,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazeSize: 40
   spawnPos: {fileID: 2129533835}
+  zombiePrefab: {fileID: 7159388515769896525, guid: fb3acdc89eb9bfa48b3c5a0296b383e8, type: 3}
+  spiderPrefab: {fileID: 7159388515769896525, guid: 13a9ec4daa9e1e54ab343576292ff1e2, type: 3}
+  crabPrefab: {fileID: 7159388515769896525, guid: 5f8fcdc73afb85e4d8bb6560d4741e8c, type: 3}
 --- !u!114 &1073134546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -392,9 +395,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mazeGen: {fileID: 1073134545}
   mazeCell: {fileID: 7754048719276588501, guid: 82a93ed1abac62a4eb6dd50c76db02d8, type: 3}
+  cellSize: 0.64
   chestObject: {fileID: 3195163394165628289, guid: ffc17f25d66211f4fbe0a8cc1e6729fc, type: 3}
   chestChance: 4
-  cellSize: 0.64
+  enemyChance: 20
+  mazeExitObject: {fileID: 1002624341004404247, guid: 0fa7a342fceafbf4989a2b65c7d87153, type: 3}
 --- !u!114 &1136930826 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3879278080133659465, guid: f8316b19995204e46822055164fe3b40, type: 3}
@@ -716,7 +721,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4872284634494048438, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4872284634494048438, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -900,6 +905,10 @@ PrefabInstance:
     - target: {fileID: 3879278080133659468, guid: f8316b19995204e46822055164fe3b40, type: 3}
       propertyPath: m_UsedByEffector
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6031400299015186146, guid: f8316b19995204e46822055164fe3b40, type: 3}
+      propertyPath: swingAngle
+      value: 360
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f8316b19995204e46822055164fe3b40, type: 3}

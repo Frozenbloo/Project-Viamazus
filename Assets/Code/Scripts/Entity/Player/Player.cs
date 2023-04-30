@@ -16,12 +16,13 @@ public class Player : MonoBehaviour, IDamageable, ISave
 	Vector3 mousePos;
 
 	[Header("Stats")]
-	public float HP, maxHP;
+	[SerializeField] float HP, maxHP;
 	[SerializeField] GameObject weapon;
-	private float weaponDmg = 1f;
+	[SerializeField] float weaponDmg = 1f;
 	private WeaponHolder weaponHolder;
 
 	[Header("Gameplay")]
+	[SerializeField] int gold;
 	private int Exp, Level;
 
 	#region SaveStuff
@@ -30,6 +31,7 @@ public class Player : MonoBehaviour, IDamageable, ISave
 		weaponDmg = data.weaponDmg;
 		Level = data.playerLvl;
 		maxHP = data.playerMaxHP;
+		gold = data.goldCount;
 	}
 
 	public void SaveData(ref GameSave data)
@@ -37,6 +39,7 @@ public class Player : MonoBehaviour, IDamageable, ISave
 		data.weaponDmg = weaponDmg;
 		data.playerLvl = Level;
 		data.playerMaxHP = maxHP;
+		data.goldCount = gold;
 	}
 	#endregion
 
@@ -50,6 +53,9 @@ public class Player : MonoBehaviour, IDamageable, ISave
 		else moveSpawnPosition();
 		if (SceneManager.GetActiveScene().name == "Hub") weapon.SetActive(false);
 		else weapon.SetActive(true);
+
+		if (GameEvents.instance.onMazeBeat == null) GameEvents.instance.onMazeBeat = new ViamazusIntEvent();
+		GameEvents.instance.onMazeBeat.AddListener(OnMazeBeat);
 	}
 
 	void Awake()
@@ -96,6 +102,11 @@ public class Player : MonoBehaviour, IDamageable, ISave
 			#endregion
 		}
 
+		if (weapon.activeSelf)
+		{
+
+		}
+
 		weaponHolder.pointerPos = mousePos;
 	}
 
@@ -104,6 +115,11 @@ public class Player : MonoBehaviour, IDamageable, ISave
 		#region Data
 		mousePos = Input.mousePosition;
 		#endregion
+	}
+
+	private void OnDisable()
+	{
+		GameEvents.instance.onMazeBeat.RemoveListener(OnMazeBeat);
 	}
 	#endregion
 
@@ -125,6 +141,7 @@ public class Player : MonoBehaviour, IDamageable, ISave
 		{
 			HP = tempHP;
 		}
+		GameEvents.instance.onPlayerHeathChange.Invoke(HP, maxHP);
 	}
 
 	public void speedUp(float multiplier, int dur)
@@ -169,9 +186,21 @@ public class Player : MonoBehaviour, IDamageable, ISave
 	{
 		transform.position = spawnPoint.position;
 	}
+	public void OnMazeBeat(int times)
+	{
+		Debug.Log("Maze Beat");
+		Level++;
+		Debug.Log(Level);
+	}
 
 	public int getLevel() { return Level; }
 	public int getExp() { return Exp; }
+	public int getGold() { return gold; }
+	public float getWeaponDmg() { return weaponDmg; }
+	public float getMaxHealth() { return maxHP; }
 	public void setLevel(int level) { Level = level; }
+	public void updateGold(int amount) { gold += amount; }
 	public void setExp(int exp) { Exp = exp; }
+	public void upgradeMaxHealth() { maxHP++; }
+	public void upgradeWeaponDmg() { weaponDmg++; }
 }

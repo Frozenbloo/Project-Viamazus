@@ -39,7 +39,7 @@ public class MazeDoor : Interactable, IDialogue, IConfirmation
 	{
 		Message = "Are you sure you want to enter the maze?";
 		ButtonTexts = new string[] { "Yes", "No" };
-		ButtonActions = new Action[] { () => { }, () => { } };
+		ButtonActions = new Action[] { () => { GameObject.FindObjectOfType<LoadingScreen>().LoadSceneAsync("MazeWorld"); }, () => { } };
 
 		confirmationManager.StartConfirmation(this);
 	}

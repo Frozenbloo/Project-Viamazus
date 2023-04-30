@@ -14,7 +14,7 @@ public class Chest : Interactable
 	[SerializeField] GameObject healthPot;
 	[SerializeField] GameObject speedPot;
 	[SerializeField] int maxCoins = 50;
-	private ViamazusChestDictionary chestDrops = new ViamazusChestDictionary();
+	private ViamazusChanceDictionary chestDrops = new ViamazusChanceDictionary();
 
 	private bool isChestOpen = false;
 
@@ -55,7 +55,7 @@ public class Chest : Interactable
 		}
 	}
 
-	private List<GameObject> GetDrops(ViamazusChestDictionary drops, int dropAmount)
+	private List<GameObject> GetDrops(ViamazusChanceDictionary drops, int dropAmount)
 	{
 		List<GameObject> items = new List<GameObject>();
 		foreach (var item in drops)

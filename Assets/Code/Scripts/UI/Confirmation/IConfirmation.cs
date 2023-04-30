@@ -7,5 +7,7 @@ public interface IConfirmation
 	Action[] ButtonActions { get; set; }
 
 	void OnConfirmationEnd();
+
+	void ShowConfirmation();
 }
 

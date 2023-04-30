@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Entity : MonoBehaviour, IDamageable
@@ -20,6 +21,7 @@ public class Entity : MonoBehaviour, IDamageable
 	private Vector3 movementVector;
 	private BoxCollider2D boxCollider2D;
 	private RaycastHit2D hitRaycast;
+	private Vector3 spawnPos;
 	private Collider2D[] hits = new Collider2D[10];
 	
 
@@ -27,7 +29,7 @@ public class Entity : MonoBehaviour, IDamageable
 	void Start()
     {
 		FullyHeal();
-		
+		spawnPos = transform.position;
     }
 
 	void Awake()
@@ -63,6 +65,10 @@ public class Entity : MonoBehaviour, IDamageable
         {
             FullyHeal();
         }
+		else
+		{
+			entityHealth = tempHealth;
+		}
 	}
 	#endregion
 
@@ -74,7 +80,7 @@ public class Entity : MonoBehaviour, IDamageable
 
     public virtual void WanderAround()
     {
-	    //
+		
 	}
 
     public virtual void Go2Player()
@@ -118,7 +124,7 @@ public class Entity : MonoBehaviour, IDamageable
             Vector2 direction = new Vector2(x, y);
             RaycastHit2D radarHitInfo = Physics2D.Raycast(transform.position, direction);
 
-            if (radarHitInfo.collider != null && !radarHitInfo.collider.CompareTag("Player"))
+            if (radarHitInfo.collider != null && !radarHitInfo.collider.CompareTag("Player") && !radarHitInfo.collider.CompareTag("Weapon"))
             {
 				WanderAround();
 			}
@@ -148,11 +154,16 @@ public class Entity : MonoBehaviour, IDamageable
 
 	public virtual void OnCollide(Collider2D collider)
 	{
+		if (collider.GetComponentInParent<WeaponHolder>())
+		{
+			StartCoroutine(DPS(GameManager.instance.GetWeaponDmg()));
+		}
 		if (collider.CompareTag("Player"))
 		{
-			DamagePlayer();
-			Destroy(gameObject);
+			//DamagePlayer();
+			//Destroy(gameObject);
 		}
+		
 	}
 
 	public virtual void DamagePlayer()
@@ -160,4 +171,10 @@ public class Entity : MonoBehaviour, IDamageable
 		object2Pathfind2.GetComponent<IDamageable>().Damage(damage);
 	}
 	#endregion
+
+	IEnumerator DPS(float dmg)
+	{
+		yield return new WaitForSeconds(1);
+		Damage(dmg);
+	}
 }

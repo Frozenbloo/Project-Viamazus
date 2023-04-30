@@ -1,13 +1,12 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameManager : MonoBehaviour, ISave
+public class GameManager : MonoBehaviour
 {
 	//needs to be accessed everywhere
 	[SerializeField] public static GameManager instance { get; private set; }
 	[SerializeField] private Player player;
-	private Image healthBar;
-	public int playerLvl;
 
 	private void Awake()
 	{
@@ -18,22 +17,45 @@ public class GameManager : MonoBehaviour, ISave
 		}
 		instance = this;
 		DontDestroyOnLoad(gameObject);
-
-		healthBar = GameObject.Find("HealthBar").GetComponent<Image>();
 	}
 
-	private void Update()
+	private void Start()
 	{
-		healthBar.fillAmount = player.HP / player.maxHP;
+		
 	}
 
-	public void LoadData(GameSave data)
+	public int GetPlayerLevel()
 	{
-		playerLvl = data.playerLvl;
+		return player.getLevel();
 	}
 
-	public void SaveData(ref GameSave data)
+	public int GetPlayerGold()
 	{
-		data.playerLvl = playerLvl;
+		return player.getGold();
+	}
+
+	public void UpdatePlayerGold(int amount)
+	{
+		player.updateGold(amount);
+	}
+
+	public float GetPlayerMaxHealth()
+	{
+		return player.getMaxHealth();
+	}
+
+	public float GetWeaponDmg()
+	{
+		return player.getWeaponDmg();
+	}
+
+	public void UpgradePlayerMaxHealth()
+	{
+		player.upgradeMaxHealth();
+	}
+
+	public void UpgradeWeaponDmg()
+	{
+		player.upgradeWeaponDmg();
 	}
 }
