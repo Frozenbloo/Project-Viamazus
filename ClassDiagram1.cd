@@ -1,75 +1,75 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Crab" Collapsed="true">
-    <Position X="0.75" Y="5" Width="1.5" />
+  <Class Name="Crab">
+    <Position X="0.5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\Enemies\Crab.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Spider" Collapsed="true">
-    <Position X="3" Y="5" Width="1.5" />
+  <Class Name="Spider">
+    <Position X="2.75" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\Enemies\Spider.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Zombie" Collapsed="true">
-    <Position X="5.25" Y="5" Width="1.5" />
+  <Class Name="Zombie">
+    <Position X="5" Y="16.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\Enemies\Zombie.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Entity" Collapsed="true">
-    <Position X="3" Y="3.5" Width="1.5" />
+  <Class Name="Entity">
+    <Position X="2.5" Y="9.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IAgYAACAEiQA4gIAEAQAAACEAYQgCACAAAAAAAAgAEA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\Entity.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="Interactable" Collapsed="true">
-    <Position X="12.75" Y="0.5" Width="1.5" />
+  <Class Name="Interactable">
+    <Position X="13.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAwAAAAAACAAAAAABAAAAAAAAIQAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\Interactable.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="BlacksmithNPC" Collapsed="true">
-    <Position X="17.25" Y="2" Width="1.5" />
+  <Class Name="BlacksmithNPC">
+    <Position X="18.5" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IABAAAACACAACAAiAAAAACAAAAAAAAAQAIAAIIEIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\NPC\BlacksmithNPC.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="GuardNPC_Facemask" Collapsed="true">
-    <Position X="21.75" Y="2" Width="1.5" />
+  <Class Name="GuardNPC_Facemask">
+    <Position X="23.5" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IABAAAAAAAAACAAAAAAAACAAAAAAAAAQAAAAAAAIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\NPC\GuardNPC_Facemask.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="GuardNPC_NoMask" Collapsed="true">
-    <Position X="1.5" Y="2" Width="1.5" />
+  <Class Name="GuardNPC_NoMask">
+    <Position X="1.5" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IABAAAAAAAAACAAAAAAAACAAAAAAAAAQAAAAAAAIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\NPC\GuardNPC_NoMask.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="TutorialPrincessNPC" Collapsed="true">
-    <Position X="3.75" Y="2" Width="1.5" />
+  <Class Name="TutorialPrincessNPC">
+    <Position X="4" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IABAAAAAAAAQCgAAAIAAACAQAAAAAAAQAAAAAAAIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\NPC\TutorialPrincessNPC.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="WizardNPC" Collapsed="true">
-    <Position X="6" Y="2" Width="1.5" />
+  <Class Name="WizardNPC">
+    <Position X="6.5" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IABAAAACACAACAAiAAAAACAAAAAAAAAQAIAAIIEIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\NPC\WizardNPC.cs</FileName>
@@ -77,7 +77,7 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="Player" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="35.25" Y="2.5" Width="1.5" />
+    <Position X="37.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAULAQLEAiowABAAEgkAAAAQSJAAAQBJgAAAkQEAQEA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\Player\Player.cs</FileName>
@@ -85,49 +85,49 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="WeaponHolder" Collapsed="true">
-    <Position X="33.5" Y="4.5" Width="1.5" />
+    <Position X="35.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AASAAAAAAAAAAAAAAAAAAAAACgAAAAAAAQAIAAAAEEA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\Player\WeaponHolder.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameEvents" Collapsed="true">
-    <Position X="33.5" Y="0.5" Width="1.5" />
+    <Position X="35.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAAAAAAAQAAAAAAAAABAAAAAAgAAAAAAAEA=</HashCode>
       <FileName>Assets\Code\Scripts\GameEvents.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameManager" Collapsed="true">
-    <Position X="35.25" Y="0.5" Width="1.5" />
+    <Position X="37.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQABAQAACAAAAAABAAAAAQAAABAAAABAAAAAAAAgNA=</HashCode>
       <FileName>Assets\Code\Scripts\GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CameraMovement" Collapsed="true">
-    <Position X="28.25" Y="0.5" Width="1.5" />
+    <Position X="30.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAEAAAACAAAAAAAIAAAAAAAAAABAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\Camera\CameraMovement.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ViamazusChanceDictionary" Collapsed="true">
-    <Position X="0.5" Y="8" Width="1.5" />
+  <Class Name="ViamazusChanceDictionary">
+    <Position X="12" Y="12.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\DataStructures\ViamazusChanceDictionary.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViamazusQueue&lt;T&gt;" Collapsed="true">
-    <Position X="30" Y="4.5" Width="1.5" />
+    <Position X="32" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAABAAAQAAAAABAAAAAAAAABAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\DataStructures\ViamazusQueue.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="ViamazusSerializableDictionary&lt;TKey, TValue&gt;" Collapsed="true">
-    <Position X="0.5" Y="6.5" Width="1.5" />
+  <Class Name="ViamazusSerializableDictionary&lt;TKey, TValue&gt;">
+    <Position X="12" Y="9.5" Width="3.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAEAIAAAAAAAAAAAAAABAACAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\DataStructures\ViamazusSerializableDictionary.cs</FileName>
@@ -135,35 +135,35 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="ViamazusStack&lt;T&gt;" Collapsed="true">
-    <Position X="31.75" Y="4.5" Width="1.5" />
+    <Position X="33.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAQAAAAAAAAABAAAAIAAAAAAAIAAAAAIAAAAQAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\DataStructures\ViamazusStack.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Viamazus2FloatEvent" Collapsed="true">
-    <Position X="26.5" Y="4.5" Width="1.5" />
+    <Position X="28.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\Events\ViaMazus2FloatEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ViamazusIntEvent" Collapsed="true">
-    <Position X="28.25" Y="4.5" Width="1.5" />
+    <Position X="30.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\Events\ViamazusIntEvent.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LoadingScreen" Collapsed="true">
-    <Position X="33.5" Y="1.5" Width="1.5" />
+    <Position X="35.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAQAAAAAAAAAAAAMgAAAAAAAAAAAAAAQAAAEA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\LoadingScreen.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="NoEntryInteract" Collapsed="true">
-    <Position X="24" Y="2" Width="1.5" />
+  <Class Name="NoEntryInteract">
+    <Position X="26" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IABAAAAAAAAACAAAAAAAACAAAAAAAAAQAAAAAAAIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\NoEntryInteract.cs</FileName>
@@ -171,42 +171,42 @@
     <Lollipop Position="0.2" />
   </Class>
   <Class Name="LocalFileSaveHandler" Collapsed="true">
-    <Position X="35.25" Y="1.5" Width="1.5" />
+    <Position X="37.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAgIAAAAAAIACAAAAAAAIAAAAAQAEAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\SaveSystem\LocalFileSaveHandler.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameSave" Collapsed="true">
-    <Position X="26.5" Y="1.5" Width="1.5" />
+    <Position X="28.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAhQAAAAABAAAAAAAAEAAgAAABAAAAAAAEAACAEAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\SaveSystem\Save\GameSave.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SaveSystemManager" Collapsed="true">
-    <Position X="26.5" Y="3.5" Width="1.5" />
+    <Position X="28.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQASAJAAIAAQAAACAAAgACAABABAQABIAEAAAAAACEE=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\SaveSystem\SaveSystemManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SceneFader" Collapsed="true">
-    <Position X="28.25" Y="3.5" Width="1.5" />
+    <Position X="30.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACCAAAAAAAAAAAgAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\SceneFader.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TextButtonAnimation" Collapsed="true">
-    <Position X="31.75" Y="3.5" Width="1.5" />
+    <Position X="33.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAgAAACABAAAAAAAAAAAAAAAgAAAAAAAAAQAIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\TextButtonAnimation.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="TextColourManager" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="33.5" Y="3.5" Width="1.5" />
+    <Position X="35.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAAAEAAhAAAAgBAAAAAAgAQAIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\TextColourManager.cs</FileName>
@@ -214,71 +214,71 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Utils" Collapsed="true">
-    <Position X="35.25" Y="3.5" Width="1.5" />
+    <Position X="37.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAEAAAAAAEAAAAAAAAAAAAEBAAAAAAAAAAAAAAAEAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\Utils\Utils.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="XPCalculator" Collapsed="true">
-    <Position X="35.25" Y="4.5" Width="1.5" />
+    <Position X="37.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEAAAAAAAAAAAAAAAgAAAAAAAAIAAAAAAACAgAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\XPCalculator.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Chest" Collapsed="true">
-    <Position X="8.25" Y="2" Width="1.5" />
+  <Class Name="Chest">
+    <Position X="9" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IAAAEIQAAAgAAAAAAAAgAAAAAAAMAQAAAAACAAAAAAY=</HashCode>
       <FileName>Assets\Code\Scripts\Items\Interactables\Chest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MazeExit" Collapsed="true">
-    <Position X="10.5" Y="2" Width="1.5" />
+  <Class Name="MazeExit">
+    <Position X="11.5" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAACAIAAEmAAAAAAAAAAAAAAAAAIAAIIEAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Items\Interactables\MazeExit.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="HealthPotion" Collapsed="true">
-    <Position X="12.75" Y="2" Width="1.5" />
+  <Class Name="HealthPotion">
+    <Position X="14" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Items\Pickups\HealthPotion.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SpeedPotion" Collapsed="true">
-    <Position X="15" Y="2" Width="1.5" />
+  <Class Name="SpeedPotion">
+    <Position X="16.25" Y="4" Width="1.5" />
     <TypeIdentifier>
       <HashCode>IAAAAAIAAAAAAAAAAAAAAAAABAAAAAAAAAAAAQAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Items\Pickups\SpeedPotion.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="DialogueManager" Collapsed="true">
-    <Position X="31.75" Y="0.5" Width="1.5" />
+    <Position X="33.75" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AARAAAACCCAAAAAIAAAAAAAAAEAAAAAYoAJQAAIAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Story\Dialogue\DialogueManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ButtonManager" Collapsed="true">
-    <Position X="26.5" Y="0.5" Width="1.5" />
+    <Position X="28.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\UI\ButtonManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ConfirmationManager" Collapsed="true">
-    <Position X="30" Y="0.5" Width="1.5" />
+    <Position X="32" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQBAAAAACAAAAAAIAAAAAAAAAAAAMAAIAAAACAIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\UI\Confirmation\ConfirmationManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GoldAmountText" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="28.25" Y="1.5" Width="1.5" />
+    <Position X="30.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEQBBAAAAQAQIAAAAAAAAAAQAAAAAAAAAAAAAAAAAMA=</HashCode>
       <FileName>Assets\Code\Scripts\UI\GoldAmountText.cs</FileName>
@@ -286,21 +286,21 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="HealthBar" Collapsed="true">
-    <Position X="31.75" Y="1.5" Width="1.5" />
+    <Position X="33.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAgAAAAAACAAAAAAAAAEAAAAAAAAAAAIAAAAAAAQAEA=</HashCode>
       <FileName>Assets\Code\Scripts\UI\HealthBar.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MenuController" Collapsed="true">
-    <Position X="33.5" Y="2.5" Width="1.5" />
+    <Position X="35.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAQABCAQACAAAAAgQAIAAAhAEAIAgAEIAAQEAEAAABA=</HashCode>
       <FileName>Assets\Code\Scripts\UI\MenuController.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SettingsManager" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="30" Y="3.5" Width="1.5" />
+    <Position X="32" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>gEQoAAAUCKARAQAIDQAIEEoQQAAAAABAAAAgAAAAAQA=</HashCode>
       <FileName>Assets\Code\Scripts\UI\SettingsManager.cs</FileName>
@@ -308,7 +308,7 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MazeCell" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="26.5" Y="2.5" Width="1.5" />
+    <Position X="28.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAEAAAABAAAAAAAAAKAAAAAAAEACAAABgAAAEAAA=</HashCode>
       <FileName>Assets\Code\Scripts\World\Maze\Cell\MazeCell.cs</FileName>
@@ -316,35 +316,35 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="MazeCellObjectGenerator" Collapsed="true">
-    <Position X="28.25" Y="2.5" Width="1.5" />
+    <Position X="30.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIAAAAAAAAAAAAAAACAAAAACAAAQAAAAAAACAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\World\Maze\MazeCellObjectGenerator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Grid" Collapsed="true">
-    <Position X="30" Y="1.5" Width="1.5" />
+    <Position X="32" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABIAggAYAQoAAAEAAAEAIAAAAAAAIAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\World\Maze\MazeData\Grid.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MazeGenerator" Collapsed="true">
-    <Position X="30" Y="2.5" Width="1.5" />
+    <Position X="32" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AkAAAJCCQgMIIECgAAwAAAAAAgYAAAABAABAACAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\World\Maze\MazeGenerator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="MazeRenderer" Collapsed="true">
-    <Position X="31.75" Y="2.5" Width="1.5" />
+    <Position X="33.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AJAAACAAgCAAQQAAAAAAQAAAAAAAQAQAEAAAAAAQAAE=</HashCode>
       <FileName>Assets\Code\Scripts\World\Maze\MazeRenderer.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="MazeDoor" Collapsed="true">
-    <Position X="19.5" Y="2" Width="1.5" />
+  <Class Name="MazeDoor">
+    <Position X="21" Y="4" Width="1.75" />
     <TypeIdentifier>
       <HashCode>IABAAAAAAGAACAAiAAAAAAAAAAAAAAAQAIAAIIEIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\World\MazeDoor.cs</FileName>
@@ -352,49 +352,49 @@
     <Lollipop Position="0.2" />
   </Class>
   <Interface Name="IDamageable" Collapsed="true">
-    <Position X="31.75" Y="5.75" Width="1.5" />
+    <Position X="33.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Entity\IDamageable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ISave" Collapsed="true">
-    <Position X="35.25" Y="5.75" Width="1.5" />
+    <Position X="37.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Internal\SaveSystem\ISave.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ICollectable" Collapsed="true">
-    <Position X="28.25" Y="5.75" Width="1.5" />
+    <Position X="30.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Items\ICollectable.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="IDialogue" Collapsed="true">
-    <Position X="33.5" Y="5.75" Width="1.5" />
+    <Position X="35.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAIAAA=</HashCode>
       <FileName>Assets\Code\Scripts\Story\Dialogue\IDialogue.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="IConfirmation" Collapsed="true">
-    <Position X="30" Y="5.75" Width="1.5" />
+    <Position X="32" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAAIIEAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\UI\Confirmation\IConfirmation.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="ICell" Collapsed="true">
-    <Position X="26.5" Y="5.75" Width="1.5" />
+    <Position X="28.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAEAAAAAAAAAAAAAAAAAIAAAAAAAAACAAAAAAAAAAAA=</HashCode>
       <FileName>Assets\Code\Scripts\World\Maze\Cell\ICell.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="Dirs" Collapsed="true">
-    <Position X="26.5" Y="6.75" Width="1.5" />
+    <Position X="28.5" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AACAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAABAAQ=</HashCode>
       <FileName>Assets\Code\Scripts\World\Maze\Cell\MazeCell.cs</FileName>
