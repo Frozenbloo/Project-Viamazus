@@ -509,6 +509,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1807110262019660660, guid: 2ed9974929732b04a8d03d3dfb5237a7, type: 3}
+      propertyPath: Encrypt
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1807110262019660660, guid: 2ed9974929732b04a8d03d3dfb5237a7, type: 3}
+      propertyPath: DebugSavingByInitIfNull
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1807110262019660661, guid: 2ed9974929732b04a8d03d3dfb5237a7, type: 3}
       propertyPath: m_RootOrder
       value: 7
@@ -663,6 +671,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165946737459409625, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2506359580569565348, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
       propertyPath: m_RootOrder
       value: 3

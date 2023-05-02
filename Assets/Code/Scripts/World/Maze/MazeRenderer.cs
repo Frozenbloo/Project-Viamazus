@@ -54,19 +54,15 @@ public class MazeRenderer : MonoBehaviour
 
 				if (!exitSpawn && rnd.Next(100) < exitSpawnChance)
 				{
-					while (!exitSpawn)
+					Vector3 exitPos = new Vector3(x * cellSize, y * cellSize + 0.5f, 0f);
+
+					if (exitPos.y <= mazeGen.GetMazeSize() * 0.6f)
 					{
-						Vector3 exitPos = new Vector3(x * cellSize, y * cellSize + 0.5f, 0f);
-
-						if (exitPos.y <= mazeGen.GetMazeSize() * 0.6f)
-						{
-							GameObject exit = Instantiate(mazeExitObject, exitPos, Quaternion.identity, transform);
-							exitSpawn = true;
-							break;
-						}
-
-						exitPos = new Vector3(x * cellSize, y * cellSize - 0.2f, 0f);
+						GameObject exit = Instantiate(mazeExitObject, exitPos, Quaternion.identity, transform);
+						exitSpawn = true;
 					}
+
+					exitPos = new Vector3(x * cellSize, y * cellSize - 0.2f, 0f);
 				}
 
 				MazeCellObjectGenerator mazeCellObject = cell.GetComponent<MazeCellObjectGenerator>();
@@ -80,6 +76,13 @@ public class MazeRenderer : MonoBehaviour
 
 				mazeCellObject.Init(top, bottom, right, left);
 			}
+		}
+
+		if (!exitSpawn)
+		{
+			Vector3 exitPos = new Vector3(0.00f * cellSize, 0.00f * cellSize + 0.5f, 0f);
+			GameObject exit = Instantiate(mazeExitObject, exitPos, Quaternion.identity, transform);
+			exitSpawn = true;
 		}
 	}
 

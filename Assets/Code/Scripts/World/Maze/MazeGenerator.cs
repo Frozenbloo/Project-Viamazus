@@ -33,6 +33,7 @@ public class MazeGenerator : MonoBehaviour
 	{
 		mazeSize = (short)(GameManager.instance.GetPlayerLevel() + 5);
 		if (mazeSize > 40) mazeSize = 40;
+
 		enemies = GenerateEnemies();
 
 		startX = rand.Next(mazeSize - 1) * 0.64f;

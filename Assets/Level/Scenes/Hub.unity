@@ -29288,6 +29288,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 2506359580569565349, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2849427467972059168, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -29340,6 +29344,14 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 877358545829287722, guid: f079b73bb01f07d45bbd39c128d20a44, type: 2}
+    - target: {fileID: 7717850042880142603, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -7.180664
+      objectReference: {fileID: 0}
+    - target: {fileID: 7717850042880142603, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.09411621
+      objectReference: {fileID: 0}
     - target: {fileID: 7918177159678794829, guid: 97f30f81d94c46a4993962cc2732eb3f, type: 3}
       propertyPath: m_fontAsset
       value: 

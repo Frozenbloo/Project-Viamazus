@@ -174,7 +174,7 @@ public class Entity : MonoBehaviour, IDamageable
 
 	private IEnumerator DPS(float dmg)
 	{
-		yield return new WaitForSeconds(1);
+		yield return new WaitForSeconds(0.1f);
 		Damage(dmg);
 	}
 }
